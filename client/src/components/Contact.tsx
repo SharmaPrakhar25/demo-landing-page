@@ -80,19 +80,19 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email",
-      info: "info@charansundayteam.com",
+      info: "rkads23@gmail.com",
       color: "bg-primary",
     },
     {
       icon: Phone,
       title: "Phone",
-      info: "+1 (555) 123-4567",
+      info: "+91-8096152094",
       color: "bg-secondary",
     },
     {
       icon: MapPin,
       title: "Office",
-      info: "123 Business District, Suite 456\nCity, State 12345",
+      info: "Flat # 401, R.K. Residency, House No.84258/R/ 18 & 19,\nBupesh Nagar, Greenland Colony,\nKarmanghat, Hyderabad-500079",
       color: "bg-accent",
     },
   ];
@@ -107,10 +107,10 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Let's Transform Your Business</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Optimize Your IT Operations?</h2>
             <p className="text-xl text-gray-300 mb-8">
-              Ready to take your organization to the next level? Contact us today to discuss how we can help
-              you achieve your business objectives and drive sustainable growth.
+              Contact R K Ads today to discuss how we can help streamline your ServiceNow implementation,
+              provide expert consulting, or connect you with top IT talent for your projects.
             </p>
 
             <div className="space-y-6">
@@ -212,12 +212,10 @@ export default function Contact() {
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="strategic-planning">Strategic Planning</SelectItem>
-                        <SelectItem value="team-development">Team Development</SelectItem>
-                        <SelectItem value="process-optimization">Process Optimization</SelectItem>
-                        <SelectItem value="innovation-consulting">Innovation Consulting</SelectItem>
-                        <SelectItem value="performance-management">Performance Management</SelectItem>
-                        <SelectItem value="change-management">Change Management</SelectItem>
+                        <SelectItem value="it-staffing">IT Staffing Solutions</SelectItem>
+                        <SelectItem value="servicenow-implementation">ServiceNow Implementation</SelectItem>
+                        <SelectItem value="servicenow-consulting">ServiceNow Consulting</SelectItem>
+                        <SelectItem value="general-inquiry">General Inquiry</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>

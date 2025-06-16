@@ -4,27 +4,27 @@ import { motion } from "framer-motion";
 
 const teamMembers = [
   {
-    name: "Charan Sunday",
-    role: "CEO & Founder",
-    description: "Strategic visionary with 15+ years in business transformation",
+    name: "Rajesh Kumar",
+    role: "Founder & CEO",
+    description: "ServiceNow expert with 10+ years in IT consulting and implementation",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300",
   },
   {
-    name: "Sarah Johnson",
-    role: "Chief Operating Officer",
-    description: "Operations excellence expert and process optimization specialist",
+    name: "Priya Sharma",
+    role: "ServiceNow Technical Lead",
+    description: "Certified ServiceNow developer and implementation specialist",
     image: "https://images.unsplash.com/photo-1494790108755-2616b332c6e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300",
   },
   {
-    name: "Michael Chen",
-    role: "Chief Technology Officer",
-    description: "Innovation leader driving digital transformation initiatives",
+    name: "Amit Patel",
+    role: "IT Staffing Manager",
+    description: "Expert in connecting top IT talent with leading organizations",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300",
   },
   {
-    name: "Emily Rodriguez",
-    role: "Head of Strategy",
-    description: "Strategic planning expert with global market experience",
+    name: "Kavya Reddy",
+    role: "ServiceNow Consultant",
+    description: "Business analyst specializing in ServiceNow optimization and workflow automation",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300",
   },
 ];

@@ -19,12 +19,12 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-10 h-10 bg-gradient-to-br from-primary to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">CS</span>
+                <span className="text-white font-bold text-lg">RK</span>
               </div>
-              <span className="text-xl font-bold">Charan Sunday Team</span>
+              <span className="text-xl font-bold">R K Ads</span>
             </div>
             <p className="text-gray-400 mb-4">
-              Transforming businesses through strategic consulting and innovative solutions.
+              Delivering top-notch IT services centered around ServiceNow implementation and consulting.
             </p>
             <div className="flex space-x-4">
               <button className="text-gray-400 hover:text-primary transition-colors">
@@ -50,7 +50,7 @@ export default function Footer() {
                   onClick={() => scrollToSection("services")}
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Strategic Planning
+                  IT Staffing Solutions
                 </button>
               </li>
               <li>
@@ -58,7 +58,7 @@ export default function Footer() {
                   onClick={() => scrollToSection("services")}
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Team Development
+                  ServiceNow Implementation
                 </button>
               </li>
               <li>
@@ -66,15 +66,7 @@ export default function Footer() {
                   onClick={() => scrollToSection("services")}
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Process Optimization
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection("services")}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Innovation Consulting
+                  ServiceNow Consulting
                 </button>
               </li>
             </ul>
@@ -118,12 +110,12 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
             <ul className="space-y-2 text-gray-400">
-              <li>info@charansundayteam.com</li>
-              <li>+1 (555) 123-4567</li>
+              <li>rkads23@gmail.com</li>
+              <li>+91-8096152094</li>
               <li>
-                123 Business District
+                Flat # 401, R.K. Residency
                 <br />
-                City, State 12345
+                Karmanghat, Hyderabad-500079
               </li>
             </ul>
           </div>
@@ -131,7 +123,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © 2024 Charan Sunday Team. All rights reserved. | Privacy Policy | Terms of Service
+            © 2024 R K Ads. All rights reserved. | Privacy Policy | Terms of Service
           </p>
         </div>
       </div>

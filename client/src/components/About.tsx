@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
 const stats = [
-  { number: "500+", label: "Projects Completed" },
-  { number: "98%", label: "Client Satisfaction" },
-  { number: "15+", label: "Years Experience" },
-  { number: "50+", label: "Team Members" },
+  { number: "300+", label: "ServiceNow Implementations" },
+  { number: "95%", label: "Client Satisfaction" },
+  { number: "10+", label: "Years Experience" },
+  { number: "25+", label: "IT Professionals" },
 ];
 
 export default function About() {
@@ -32,16 +32,16 @@ export default function About() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-business-dark mb-6">
-              About Charan Sunday Team
+              About R K Ads
             </h2>
             <p className="text-xl text-gray-600 mb-6">
-              With over a decade of experience in business consulting, we've helped hundreds of organizations
-              transform their operations, culture, and performance. Our proven methodologies and deep industry
-              expertise make us the trusted partner for companies seeking sustainable growth.
+              At R.K. ADS, we specialize in delivering top-notch IT services centered around ServiceNow. 
+              Our expertise lies in helping businesses streamline their IT operations, enhance workflow automation, 
+              and maximize the full potential of the ServiceNow platform.
             </p>
             <p className="text-lg text-gray-600 mb-8">
-              We believe in collaborative partnerships, data-driven decisions, and sustainable solutions that
-              create lasting value for our clients and their stakeholders.
+              With a team of certified professionals, we provide tailored solutions to meet your unique business needs. 
+              Our staffing solutions ensure you get the right talent to drive your projects forward efficiently.
             </p>
 
             <div className="grid grid-cols-2 gap-6 mb-8">
