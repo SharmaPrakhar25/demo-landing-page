@@ -71,7 +71,7 @@
 
 @layer components {
   .gradient-overlay {
-    background: linear-gradient(135deg, rgba(30, 64, 175, 0.9), rgba(30, 64, 175, 0.7));
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
   }
   
   .btn-primary {
@@ -79,7 +79,19 @@
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
+    @apply transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:scale-[1.02] transform-gpu;
+  }
+  
+  .card-hover:hover {
+    box-shadow: 0 25px 50px -12px rgba(239, 68, 68, 0.1);
+  }
+  
+  .card-hover-enhanced {
+    @apply transition-all duration-700 ease-out hover:-translate-y-4 hover:shadow-2xl hover:scale-[1.03] hover:rotate-1 transform-gpu;
+  }
+  
+  .card-hover-enhanced:hover {
+    box-shadow: 0 25px 50px -12px rgba(239, 68, 68, 0.2);
   }
   
   .form-input {
@@ -98,6 +110,14 @@
   
   .animate-scale-in {
     animation: scaleIn 0.5s ease-out;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
   }
 }
 
@@ -125,5 +145,23 @@
   to { 
     transform: scale(1); 
     opacity: 1; 
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-10px); 
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
   }
 }

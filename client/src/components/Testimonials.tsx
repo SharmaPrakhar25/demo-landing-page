@@ -47,15 +47,25 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.author}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ 
+                scale: 1.02, 
+                y: -6,
+                transition: { duration: 0.4, ease: "easeOut" }
+              }}
+              transition={{ 
+                duration: 0.6, 
+                delay: index * 0.13,
+                type: "spring",
+                stiffness: 90
+              }}
               viewport={{ once: true }}
             >
-              <Card className="h-full card-hover shadow-lg bg-business-light">
+              <Card className="h-full card-hover-enhanced shadow-lg bg-gradient-to-br from-white to-primary/5 border-0 ring-1 ring-primary/10">
                 <CardContent className="p-8">
                   <div className="flex items-center mb-6">
-                    <div className="flex text-secondary">
+                    <div className="flex text-yellow-500">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} className="h-5 w-5 fill-current" />
                       ))}

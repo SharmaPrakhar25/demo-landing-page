@@ -50,12 +50,24 @@ export default function Team() {
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 50, rotateY: -15 }}
+              whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+              whileHover={{ 
+                scale: 1.03, 
+                y: -8,
+                rotateY: 5,
+                transition: { duration: 0.3 }
+              }}
+              transition={{ 
+                duration: 0.7, 
+                delay: index * 0.12,
+                type: "spring",
+                stiffness: 80
+              }}
               viewport={{ once: true }}
+              style={{ perspective: 1000 }}
             >
-              <Card className="card-hover shadow-lg text-center">
+              <Card className="card-hover-enhanced shadow-lg text-center bg-gradient-to-br from-white via-white to-gray-50/30 border-0 ring-1 ring-gray-200/40">
                 <CardContent className="p-6">
                   <img
                     src={member.image}

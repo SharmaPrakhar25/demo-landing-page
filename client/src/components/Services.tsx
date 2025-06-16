@@ -45,8 +45,8 @@ export default function Services() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Our Services</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-700 mb-4">Our Services</h2>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             Comprehensive IT solutions tailored to maximize your ServiceNow potential and streamline operations
           </p>
         </motion.div>
@@ -55,12 +55,18 @@ export default function Services() {
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ scale: 1.02, y: -5 }}
+              transition={{ 
+                duration: 0.6, 
+                delay: index * 0.15,
+                type: "spring",
+                stiffness: 100
+              }}
               viewport={{ once: true }}
             >
-              <Card className="h-full card-hover shadow-lg">
+              <Card className="h-full card-hover-enhanced shadow-lg bg-gradient-to-br from-white to-gray-50/50 border-0 ring-1 ring-gray-200/50">
                 <CardContent className="p-8">
                   <div className={`w-16 h-16 ${service.color} rounded-2xl flex items-center justify-center mb-6`}>
                     <service.icon className="h-8 w-8" />
