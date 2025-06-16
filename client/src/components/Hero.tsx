@@ -169,21 +169,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Enhanced Scroll Indicator */}
-      <motion.div
-        animate={{ y: [0, 12, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2"
-      >
-        <div className="text-xs text-muted-foreground font-medium tracking-wider uppercase">Scroll</div>
-        <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center">
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-1 h-3 bg-gradient-to-b from-blue-500 to-purple-600 rounded-full mt-2"
-          />
-        </div>
-      </motion.div>
+
     </section>
   );
 }
