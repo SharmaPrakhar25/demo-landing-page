@@ -27,7 +27,7 @@ const avatarColors = ["bg-primary", "bg-secondary", "bg-accent"];
 
 export default function Testimonials() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-primary text-white">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -36,9 +36,10 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-business-dark mb-4">Client Success Stories</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Hear from our clients about their transformation journey and the results we've achieved together
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Why Choose Us?</h2>
+          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            Our team of certified ServiceNow experts is dedicated to transforming your IT operations. 
+            We bring deep hands-on understanding of the platform and commitment to delivering real value to your business.
           </p>
         </motion.div>
 

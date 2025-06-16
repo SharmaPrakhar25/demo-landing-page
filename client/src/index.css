@@ -15,20 +15,21 @@
   --card-foreground: hsl(222, 47%, 11%);
   --border: hsl(214, 32%, 91%);
   --input: hsl(214, 32%, 91%);
-  --primary: hsl(221, 83%, 53%);
-  --primary-foreground: hsl(210, 40%, 98%);
-  --secondary: hsl(43, 96%, 56%);
-  --secondary-foreground: hsl(222, 47%, 11%);
-  --accent: hsl(158, 64%, 52%);
-  --accent-foreground: hsl(222, 47%, 11%);
+  --primary: hsl(4, 76%, 58%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(4, 76%, 58%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --accent: hsl(4, 76%, 58%);
+  --accent-foreground: hsl(0, 0%, 100%);
   --destructive: hsl(0, 84%, 60%);
   --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(221, 83%, 53%);
+  --ring: hsl(4, 76%, 58%);
   --radius: 0.75rem;
   
-  /* Custom business colors */
-  --business-dark: hsl(215, 28%, 17%);
-  --business-light: hsl(210, 40%, 98%);
+  /* Custom business colors matching original website */
+  --business-dark: hsl(0, 0%, 15%);
+  --business-light: hsl(0, 0%, 97%);
+  --business-red: hsl(4, 76%, 58%);
 }
 
 .dark {
@@ -74,7 +75,7 @@
   }
   
   .btn-primary {
-    @apply bg-gradient-to-r from-primary to-blue-600 hover:from-blue-700 hover:to-blue-800 text-primary-foreground font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg;
+    @apply bg-gradient-to-r from-primary to-red-600 hover:from-red-700 hover:to-red-800 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg;
   }
   
   .card-hover {

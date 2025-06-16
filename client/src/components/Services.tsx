@@ -36,7 +36,7 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-20 bg-business-light">
+    <section id="services" className="py-20 bg-business-dark text-white">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -45,8 +45,8 @@ export default function Services() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-business-dark mb-4">Our Services</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Our Services</h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Comprehensive IT solutions tailored to maximize your ServiceNow potential and streamline operations
           </p>
         </motion.div>
@@ -71,7 +71,7 @@ export default function Services() {
                     onClick={scrollToContact}
                     className="text-primary font-semibold hover:underline transition-all duration-300"
                   >
-                    Learn More →
+                    + Learn More
                   </button>
                 </CardContent>
               </Card>

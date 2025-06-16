@@ -31,7 +31,7 @@ const teamMembers = [
 
 export default function Team() {
   return (
-    <section id="team" className="py-20 bg-business-light">
+    <section id="team" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -63,13 +63,13 @@ export default function Team() {
                     className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
                   />
                   <h3 className="text-xl font-bold text-business-dark mb-2">{member.name}</h3>
-                  <p className="text-secondary font-semibold mb-2">{member.role}</p>
+                  <p className="text-primary font-semibold mb-2">{member.role}</p>
                   <p className="text-gray-600 text-sm mb-4">{member.description}</p>
                   <div className="flex justify-center space-x-3">
-                    <button className="text-primary hover:text-blue-700 transition-colors">
+                    <button className="text-primary hover:text-red-700 transition-colors">
                       <Linkedin className="h-5 w-5" />
                     </button>
-                    <button className="text-primary hover:text-blue-700 transition-colors">
+                    <button className="text-primary hover:text-red-700 transition-colors">
                       <Twitter className="h-5 w-5" />
                     </button>
                   </div>
