@@ -1,13 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: hsl(0, 0%, 100%);
-  --foreground: hsl(222, 47%, 11%);
-  --muted: hsl(210, 40%, 96%);
+  --background: hsl(0, 0%, 98%);
+  --foreground: hsl(222, 84%, 4%);
+  --muted: hsl(210, 40%, 98%);
   --muted-foreground: hsl(215, 13%, 49%);
   --popover: hsl(0, 0%, 100%);
   --popover-foreground: hsl(222, 47%, 11%);
@@ -15,35 +16,44 @@
   --card-foreground: hsl(222, 47%, 11%);
   --border: hsl(214, 32%, 91%);
   --input: hsl(214, 32%, 91%);
-  --primary: hsl(4, 76%, 58%);
+  --primary: hsl(230, 73%, 58%);
   --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(4, 76%, 58%);
-  --secondary-foreground: hsl(0, 0%, 100%);
-  --accent: hsl(4, 76%, 58%);
-  --accent-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(220, 14%, 96%);
+  --secondary-foreground: hsl(220, 9%, 46%);
+  --accent: hsl(220, 14%, 96%);
+  --accent-foreground: hsl(220, 9%, 46%);
   --destructive: hsl(0, 84%, 60%);
   --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(4, 76%, 58%);
-  --radius: 0.75rem;
+  --ring: hsl(230, 73%, 58%);
+  --radius: 1rem;
   
-  /* Custom business colors matching original website */
-  --business-dark: hsl(0, 0%, 15%);
-  --business-light: hsl(0, 0%, 97%);
-  --business-red: hsl(4, 76%, 58%);
+  /* 2025 Modern Color Palette */
+  --gradient-primary: linear-gradient(135deg, hsl(230, 73%, 58%) 0%, hsl(270, 75%, 65%) 50%, hsl(300, 85%, 70%) 100%);
+  --gradient-secondary: linear-gradient(135deg, hsl(180, 77%, 60%) 0%, hsl(230, 73%, 58%) 100%);
+  --gradient-accent: linear-gradient(135deg, hsl(270, 75%, 65%) 0%, hsl(300, 85%, 70%) 100%);
+  --gradient-dark: linear-gradient(135deg, hsl(222, 84%, 4%) 0%, hsl(230, 45%, 15%) 100%);
+  --surface-glass: hsla(0, 0%, 100%, 0.1);
+  --surface-elevated: hsl(0, 0%, 100%);
+  --blur-strength: 20px;
+  
+  /* Business colors with modern twist */
+  --business-primary: hsl(230, 73%, 58%);
+  --business-accent: hsl(270, 75%, 65%);
+  --business-neutral: hsl(220, 14%, 96%);
 }
 
 .dark {
-  --background: hsl(222, 84%, 5%);
+  --background: hsl(222, 84%, 4%);
   --foreground: hsl(210, 40%, 98%);
   --muted: hsl(217, 32%, 17%);
   --muted-foreground: hsl(215, 20%, 65%);
-  --popover: hsl(222, 84%, 5%);
+  --popover: hsl(224, 71%, 8%);
   --popover-foreground: hsl(210, 40%, 98%);
-  --card: hsl(222, 84%, 5%);
+  --card: hsl(224, 71%, 6%);
   --card-foreground: hsl(210, 40%, 98%);
   --border: hsl(217, 32%, 17%);
   --input: hsl(217, 32%, 17%);
-  --primary: hsl(221, 83%, 53%);
+  --primary: hsl(230, 73%, 58%);
   --primary-foreground: hsl(210, 40%, 98%);
   --secondary: hsl(217, 32%, 17%);
   --secondary-foreground: hsl(210, 40%, 98%);
@@ -51,7 +61,14 @@
   --accent-foreground: hsl(210, 40%, 98%);
   --destructive: hsl(0, 63%, 31%);
   --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(221, 83%, 53%);
+  --ring: hsl(230, 73%, 58%);
+  
+  /* Dark mode gradients */
+  --gradient-primary: linear-gradient(135deg, hsl(230, 73%, 48%) 0%, hsl(270, 75%, 55%) 50%, hsl(300, 85%, 60%) 100%);
+  --gradient-secondary: linear-gradient(135deg, hsl(180, 77%, 50%) 0%, hsl(230, 73%, 48%) 100%);
+  --gradient-accent: linear-gradient(135deg, hsl(270, 75%, 55%) 0%, hsl(300, 85%, 60%) 100%);
+  --surface-glass: hsla(210, 40%, 98%, 0.05);
+  --surface-elevated: hsl(224, 71%, 8%);
 }
 
 @layer base {
@@ -62,6 +79,8 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-variation-settings: 'wght' 400;
+    font-optical-sizing: auto;
   }
 
   html {
@@ -71,31 +90,77 @@
 
 @layer components {
   .gradient-overlay {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+    background: linear-gradient(135deg, rgba(34, 42, 69, 0.7), rgba(72, 85, 99, 0.6));
+  }
+  
+  .glass-morphism {
+    background: var(--surface-glass);
+    backdrop-filter: blur(var(--blur-strength));
+    border: 1px solid hsla(0, 0%, 100%, 0.1);
+    border-radius: var(--radius);
   }
   
   .btn-primary {
-    @apply bg-gradient-to-r from-primary to-red-600 hover:from-red-700 hover:to-red-800 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg;
+    background: var(--gradient-primary);
+    @apply text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:scale-105;
+    box-shadow: 0 10px 40px -10px hsla(230, 73%, 58%, 0.4);
   }
   
-  .card-hover {
-    @apply transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:scale-[1.02] transform-gpu;
+  .btn-primary:hover {
+    box-shadow: 0 20px 60px -10px hsla(230, 73%, 58%, 0.6);
   }
   
-  .card-hover:hover {
-    box-shadow: 0 25px 50px -12px rgba(239, 68, 68, 0.1);
+  .btn-secondary {
+    background: var(--gradient-secondary);
+    @apply text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:scale-105;
+    box-shadow: 0 10px 40px -10px hsla(180, 77%, 60%, 0.4);
   }
   
-  .card-hover-enhanced {
-    @apply transition-all duration-700 ease-out hover:-translate-y-4 hover:shadow-2xl hover:scale-[1.03] hover:rotate-1 transform-gpu;
+  .btn-secondary:hover {
+    box-shadow: 0 20px 60px -10px hsla(180, 77%, 60%, 0.6);
   }
   
-  .card-hover-enhanced:hover {
-    box-shadow: 0 25px 50px -12px rgba(239, 68, 68, 0.2);
+  .card-modern {
+    @apply bg-card backdrop-blur-xl border border-border/20 rounded-3xl p-8 transition-all duration-700 hover:-translate-y-6 hover:shadow-2xl hover:scale-[1.02] transform-gpu;
+    box-shadow: 0 8px 32px -8px hsla(230, 73%, 58%, 0.1);
   }
   
-  .form-input {
-    @apply transition-all duration-300 focus:scale-[1.02] focus:shadow-lg focus:ring-2 focus:ring-primary focus:ring-opacity-20;
+  .card-modern:hover {
+    box-shadow: 0 32px 64px -12px hsla(230, 73%, 58%, 0.25);
+  }
+  
+  .card-bento {
+    @apply bg-card border border-border rounded-2xl p-6 transition-all duration-500 hover:shadow-xl hover:scale-[1.01] transform-gpu;
+  }
+  
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-secondary {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .blur-fade-in {
+    filter: blur(4px);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: blurFadeIn 1s ease-out forwards;
+  }
+  
+  .progressive-blur {
+    backdrop-filter: blur(0px);
+    transition: backdrop-filter 0.3s ease;
+  }
+  
+  .progressive-blur:hover {
+    backdrop-filter: blur(8px);
   }
 }
 
@@ -118,6 +183,22 @@
   
   .animate-pulse-glow {
     animation: pulseGlow 2s ease-in-out infinite;
+  }
+  
+  .animate-gradient {
+    animation: gradientShift 6s ease-in-out infinite;
+  }
+  
+  .animate-tilt {
+    animation: tilt 10s infinite linear;
+  }
+  
+  .animate-bounce-gentle {
+    animation: bounceGentle 2s ease-in-out infinite;
+  }
+  
+  .animate-blur-in {
+    animation: blurIn 1.2s ease-out forwards;
   }
 }
 
@@ -159,9 +240,63 @@
 
 @keyframes pulseGlow {
   0%, 100% { 
-    box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+    box-shadow: 0 0 20px hsla(230, 73%, 58%, 0.3);
   }
   50% { 
-    box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
+    box-shadow: 0 0 30px hsla(230, 73%, 58%, 0.6);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes tilt {
+  0%, 50%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(1deg);
+  }
+  75% {
+    transform: rotate(-1deg);
+  }
+}
+
+@keyframes bounceGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes blurIn {
+  from {
+    filter: blur(10px);
+    opacity: 0;
+  }
+  to {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes blurFadeIn {
+  from {
+    filter: blur(4px);
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    filter: blur(0px);
+    opacity: 1;
+    transform: translateY(0px);
   }
 }

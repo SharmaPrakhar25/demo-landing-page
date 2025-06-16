@@ -1,25 +1,75 @@
-import { TrendingUp, Users, Settings, Lightbulb, Target, Handshake } from "lucide-react";
+import { 
+  Users, 
+  Settings, 
+  Lightbulb, 
+  Brain, 
+  Zap, 
+  Shield, 
+  Workflow, 
+  BarChart3,
+  ArrowRight,
+  Sparkles
+} from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 
 const services = [
   {
-    icon: Users,
-    title: "IT Staffing Solutions",
-    description: "At R.K. ADS, we provide highly skilled IT professionals to meet your business needs. Whether you require short-term contractors or full-time hires, we have a vast network of qualified experts proficient in ServiceNow and other IT domains.",
-    color: "bg-primary/10 text-primary",
+    icon: Brain,
+    title: "AI-Powered Automation",
+    description: "Harness the power of artificial intelligence to automate complex workflows and enhance decision-making processes.",
+    color: "from-blue-500 to-purple-600",
+    size: "large",
+    featured: true,
   },
   {
     icon: Settings,
     title: "ServiceNow Implementation",
-    description: "From initial setup to full-scale deployment, we ensure a seamless and efficient implementation of ServiceNow in your organization. Our experts help you configure and customize the platform to align with your business processes.",
-    color: "bg-secondary/10 text-secondary",
+    description: "End-to-end ServiceNow deployment with custom configurations.",
+    color: "from-cyan-400 to-blue-600",
+    size: "medium",
+  },
+  {
+    icon: Users,
+    title: "Expert IT Staffing",
+    description: "Top-tier IT professionals for your critical projects.",
+    color: "from-purple-500 to-pink-600",
+    size: "medium",
+  },
+  {
+    icon: Zap,
+    title: "Performance Optimization",
+    description: "Maximize system efficiency and reduce operational costs.",
+    color: "from-orange-400 to-red-500",
+    size: "small",
+  },
+  {
+    icon: Shield,
+    title: "Security Solutions",
+    description: "Comprehensive cybersecurity frameworks.",
+    color: "from-green-400 to-teal-500",
+    size: "small",
+  },
+  {
+    icon: Workflow,
+    title: "Process Automation",
+    description: "Streamline business processes with intelligent automation.",
+    color: "from-indigo-400 to-purple-500",
+    size: "medium",
+  },
+  {
+    icon: BarChart3,
+    title: "Analytics & Insights",
+    description: "Data-driven insights for strategic decision making.",
+    color: "from-pink-400 to-rose-500",
+    size: "small",
   },
   {
     icon: Lightbulb,
-    title: "ServiceNow Consulting",
-    description: "Leverage our deep industry knowledge to optimize your ServiceNow experience. We analyze your existing IT ecosystem and provide strategic recommendations to enhance efficiency, reduce costs, and improve service delivery.",
-    color: "bg-accent/10 text-accent",
+    title: "Strategic Consulting",
+    description: "Expert guidance for digital transformation initiatives.",
+    color: "from-yellow-400 to-orange-500",
+    size: "medium",
   },
 ];
 
@@ -36,54 +86,135 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-20 bg-business-dark text-white">
+    <section id="services" className="py-24 bg-gradient-to-b from-background to-muted/30">
       <div className="container mx-auto px-6">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-700 mb-4">Our Services</h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Comprehensive IT solutions tailored to maximize your ServiceNow potential and streamline operations
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-purple-600/10 backdrop-blur-xl border border-blue-500/20 rounded-full px-6 py-3 mb-6">
+            <Sparkles className="w-4 h-4 text-blue-500" />
+            <span className="text-sm font-medium text-foreground">Our Solutions</span>
+          </div>
+          <h2 className="text-5xl md:text-7xl font-bold mb-6 text-gradient" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+            Cutting-Edge Services
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Discover our comprehensive suite of AI-powered solutions designed to transform your business operations
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ scale: 1.02, y: -5 }}
-              transition={{ 
-                duration: 0.6, 
-                delay: index * 0.15,
-                type: "spring",
-                stiffness: 100
-              }}
-              viewport={{ once: true }}
-            >
-              <Card className="h-full card-hover-enhanced shadow-lg bg-gradient-to-br from-white to-gray-50/50 border-0 ring-1 ring-gray-200/50">
-                <CardContent className="p-8">
-                  <div className={`w-16 h-16 ${service.color} rounded-2xl flex items-center justify-center mb-6`}>
-                    <service.icon className="h-8 w-8" />
+        {/* Bento Grid Layout */}
+        <div className="grid grid-cols-12 gap-6 max-w-7xl mx-auto">
+          {services.map((service, index) => {
+            let gridClass = "";
+            switch (service.size) {
+              case "large":
+                gridClass = "col-span-12 md:col-span-6 lg:col-span-8 row-span-2";
+                break;
+              case "medium":
+                gridClass = "col-span-12 md:col-span-6 lg:col-span-4";
+                break;
+              case "small":
+                gridClass = "col-span-12 sm:col-span-6 lg:col-span-4";
+                break;
+              default:
+                gridClass = "col-span-12 md:col-span-4";
+            }
+
+            return (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                whileHover={{ scale: 1.02, y: -8 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.1,
+                  type: "spring",
+                  stiffness: 120
+                }}
+                viewport={{ once: true }}
+                className={`${gridClass} group`}
+              >
+                <div className={`card-bento h-full relative overflow-hidden ${
+                  service.featured 
+                    ? 'bg-gradient-to-br from-blue-500/5 to-purple-600/5 border-2 border-blue-500/20' 
+                    : 'bg-card/50 backdrop-blur-sm'
+                } ${service.size === 'large' ? 'p-8 md:p-12' : 'p-6'}`}>
+                  
+                  {/* Background Pattern */}
+                  <div className="absolute inset-0 opacity-10">
+                    <div className={`absolute top-4 right-4 w-32 h-32 bg-gradient-to-r ${service.color} rounded-full blur-3xl`} />
                   </div>
-                  <h3 className="text-2xl font-bold text-business-dark mb-4">{service.title}</h3>
-                  <p className="text-gray-600 mb-6">{service.description}</p>
-                  <button
-                    onClick={scrollToContact}
-                    className="text-primary font-semibold hover:underline transition-all duration-300"
-                  >
-                    + Learn More
-                  </button>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                  
+                  {/* Content */}
+                  <div className="relative z-10 h-full flex flex-col">
+                    {/* Icon */}
+                    <div className={`inline-flex w-fit p-4 bg-gradient-to-r ${service.color} rounded-2xl shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                      <service.icon className={`text-white ${service.size === 'large' ? 'h-8 w-8' : 'h-6 w-6'}`} />
+                    </div>
+                    
+                    {/* Title & Description */}
+                    <h3 className={`font-bold text-foreground mb-4 ${
+                      service.size === 'large' ? 'text-3xl md:text-4xl' : 'text-xl md:text-2xl'
+                    }`}>
+                      {service.title}
+                    </h3>
+                    
+                    <p className={`text-muted-foreground leading-relaxed flex-1 ${
+                      service.size === 'large' ? 'text-lg mb-8' : 'text-base mb-6'
+                    }`}>
+                      {service.description}
+                    </p>
+                    
+                    {/* CTA */}
+                    <button
+                      onClick={scrollToContact}
+                      className="inline-flex items-center gap-2 text-foreground font-semibold hover:gap-3 transition-all duration-300 group-hover:text-blue-600"
+                    >
+                      Learn More
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </button>
+                  </div>
+                  
+                  {/* Featured Badge */}
+                  {service.featured && (
+                    <div className="absolute top-4 right-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                      Popular
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mt-20"
+        >
+          <div className="inline-flex flex-col sm:flex-row gap-4 items-center">
+            <button
+              onClick={scrollToContact}
+              className="btn-primary px-8 py-4 text-lg"
+            >
+              Get Started Today
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </button>
+            <p className="text-muted-foreground text-sm">
+              Ready to transform your business? Let's discuss your needs.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
