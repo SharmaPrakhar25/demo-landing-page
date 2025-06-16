@@ -1,0 +1,378 @@
+.hero-image {
+  width: 100%; /* Image will take 100% width of its parent container */
+  max-width: 1920px; /* Optional: Sets a maximum width for very large screens */
+  height: 700px; /* Set a fixed height for the banner area */
+  object-fit: cover; /* This is crucial: It will scale the 1024x1024 image to cover the 100% width and 700px height, cropping the top/bottom if necessary to maintain aspect ratio */
+  display: block;
+  margin: 0 auto;
+}
+
+/* Ensure parent container (App-header) allows the image to stretch */
+.App-header {
+  position: relative;
+  width: 100%;
+  height: 70vh; /* Reduced from 100vh to 70vh to show more content below */
+  min-height: 600px; /* Ensure minimum height on smaller screens */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.15; /* Much more transparent - increased opacity */
+  filter: blur(0.5px); /* Subtle blur for background effect */
+  transition: opacity 0.3s ease;
+}
+
+/* Enhanced overlay with gradient that fades to transparent at bottom */
+.App-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.8) 0%,
+    rgba(30, 41, 59, 0.6) 40%,
+    rgba(51, 65, 85, 0.7) 70%,
+    rgba(51, 65, 85, 0.3) 90%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+/* Add a smooth transition gradient at the bottom */
+.App-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px; /* Increased height of the transition area */
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 20%,
+    rgba(255, 255, 255, 0.15) 40%,
+    rgba(255, 255, 255, 0.3) 60%,
+    rgba(255, 255, 255, 0.6) 80%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+  z-index: 3; /* Above content but creates smooth transition */
+  pointer-events: none; /* Don't interfere with interactions */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  padding: 0 2rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Typewriter animation styles with neon shine effect */
+.typewriter-text {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 30%, #34d399 60%, #60a5fa 100%);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  min-height: 1.2em;
+  position: relative;
+  animation: neonShine 3s ease-in-out infinite, gradientShift 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.3)) 
+          drop-shadow(0 0 20px rgba(167, 139, 250, 0.2)) 
+          drop-shadow(0 0 30px rgba(52, 211, 153, 0.1));
+}
+
+/* Neon glow animation */
+@keyframes neonShine {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(96, 165, 250, 0.4)) 
+            drop-shadow(0 0 10px rgba(167, 139, 250, 0.3)) 
+            drop-shadow(0 0 15px rgba(52, 211, 153, 0.2));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.8)) 
+            drop-shadow(0 0 30px rgba(167, 139, 250, 0.6)) 
+            drop-shadow(0 0 40px rgba(52, 211, 153, 0.4));
+  }
+}
+
+/* Gradient shift animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.cursor {
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 30%, #34d399 60%, #60a5fa 100%);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: blink 1s infinite, gradientShift 4s ease-in-out infinite;
+  font-weight: 300;
+  filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.6)) 
+          drop-shadow(0 0 12px rgba(167, 139, 250, 0.4));
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-bottom: 2rem;
+  color: #e2e8f0;
+  line-height: 1.6;
+  font-weight: 300;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 1s ease-out 2s both; /* Delay to appear after typewriter */
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  animation: fadeInUp 1s ease-out 2.5s both; /* Delay to appear after paragraph */
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #f1f5f9;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(96, 165, 250, 0.3);
+  border-color: rgba(96, 165, 250, 0.4);
+}
+
+.badge:hover::before {
+  left: 100%;
+}
+
+/* Scroll Indicator Styles */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 4;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  animation: bounce 2s infinite;
+}
+
+.scroll-indicator.hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(20px);
+  pointer-events: none;
+}
+
+.scroll-text {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.scroll-arrow {
+  width: 24px;
+  height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 6px;
+}
+
+.scroll-dot {
+  width: 4px;
+  height: 8px;
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+  border-radius: 2px;
+  animation: scrollDot 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+@keyframes scrollDot {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating animation for subtle movement */
+.hero-content {
+  animation: fadeInUp 1s ease-out, float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .App-header {
+    height: 60vh;
+    min-height: 500px;
+    padding: 2rem 1rem;
+  }
+  
+  .hero-content {
+    padding: 0 1rem;
+  }
+  
+  .hero-badges {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  
+  .badge {
+    width: fit-content;
+  }
+  
+  .scroll-indicator {
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .App-header {
+    height: 55vh;
+    min-height: 450px;
+  }
+  
+  .typewriter-text {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+  
+  .hero-content p {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+  }
+}
+
+/* Add particle effects using a different pseudo-element approach */
+.hero-content::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(96, 165, 250, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(167, 139, 250, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(52, 211, 153, 0.08) 0%, transparent 50%);
+  z-index: -1;
+  animation: pulse 6s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+.App {
+  text-align: center;
+} 

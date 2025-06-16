@@ -29,50 +29,55 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 border-b border-gray-100 transition-all duration-300 ${
-        isScrolled ? "bg-white/98 backdrop-blur-md" : "bg-white/95 backdrop-blur-md"
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        isScrolled 
+          ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-black/5" 
+          : "bg-background/60 backdrop-blur-lg"
       }`}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-red-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">RK</span>
+          {/* Logo */}
+          <div className="flex items-center space-x-3">
+            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+              <span className="text-white font-bold text-xl">RK</span>
             </div>
-            <span className="text-xl font-bold text-business-dark">R K Ads</span>
+            <span className="text-2xl font-bold text-foreground" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              R K Ads
+            </span>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection("home")}
-              className="text-business-dark hover:text-primary transition-colors duration-300 font-medium"
+              className="text-muted-foreground hover:text-foreground transition-all duration-300 font-medium hover:scale-105"
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection("services")}
-              className="text-business-dark hover:text-primary transition-colors duration-300 font-medium"
+              className="text-muted-foreground hover:text-foreground transition-all duration-300 font-medium hover:scale-105"
             >
-              Services
+              Solutions
             </button>
             <button
               onClick={() => scrollToSection("about")}
-              className="text-business-dark hover:text-primary transition-colors duration-300 font-medium"
+              className="text-muted-foreground hover:text-foreground transition-all duration-300 font-medium hover:scale-105"
             >
               About
             </button>
             <button
               onClick={() => scrollToSection("team")}
-              className="text-business-dark hover:text-primary transition-colors duration-300 font-medium"
+              className="text-muted-foreground hover:text-foreground transition-all duration-300 font-medium hover:scale-105"
             >
               Team
             </button>
             <Button
               onClick={() => scrollToSection("contact")}
-              className="btn-primary"
+              className="btn-primary ml-4"
             >
-              Contact
+              Get Started
             </Button>
           </div>
 
@@ -80,46 +85,50 @@ export default function Navigation() {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="md:hidden hover:bg-card"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMenuOpen ? (
+              <X className="h-6 w-6 text-foreground" />
+            ) : (
+              <Menu className="h-6 w-6 text-foreground" />
+            )}
           </Button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-gray-100">
-            <div className="flex flex-col space-y-4 pt-4">
+          <div className="md:hidden mt-6 pb-6 border-t border-border/50 bg-card/50 backdrop-blur-xl rounded-2xl mt-4">
+            <div className="flex flex-col space-y-4 pt-6 px-4">
               <button
                 onClick={() => scrollToSection("home")}
-                className="text-business-dark hover:text-primary transition-colors duration-300 font-medium text-left"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium text-left py-2"
               >
                 Home
               </button>
               <button
                 onClick={() => scrollToSection("services")}
-                className="text-business-dark hover:text-primary transition-colors duration-300 font-medium text-left"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium text-left py-2"
               >
-                Services
+                Solutions
               </button>
               <button
                 onClick={() => scrollToSection("about")}
-                className="text-business-dark hover:text-primary transition-colors duration-300 font-medium text-left"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium text-left py-2"
               >
                 About
               </button>
               <button
                 onClick={() => scrollToSection("team")}
-                className="text-business-dark hover:text-primary transition-colors duration-300 font-medium text-left"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium text-left py-2"
               >
                 Team
               </button>
               <Button
                 onClick={() => scrollToSection("contact")}
-                className="btn-primary w-full"
+                className="btn-primary w-full mt-4"
               >
-                Contact
+                Get Started
               </Button>
             </div>
           </div>
