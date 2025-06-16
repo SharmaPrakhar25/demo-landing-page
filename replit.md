@@ -1,8 +1,8 @@
-# Charan Sunday Team - Business Consulting Website
+# R K Ads - IT Consulting & ServiceNow Solutions Website
 
 ## Overview
 
-This is a full-stack business consulting website built with React frontend and Express.js backend. The application serves as a professional business consulting platform with a modern, responsive design featuring service showcases, team information, testimonials, and a contact form system.
+This is a full-stack IT consulting website built with React frontend and Express.js backend. The application serves as a professional ServiceNow consulting platform with a modern, responsive design featuring IT service showcases, team information, client testimonials, and a contact form system specialized for ServiceNow implementations and IT staffing solutions.
 
 ## System Architecture
 
@@ -31,13 +31,13 @@ This is a full-stack business consulting website built with React frontend and E
 ## Key Components
 
 ### Frontend Pages & Components
-- **Home Page**: Single-page application with sections for hero, services, about, team, testimonials, and contact
-- **Navigation**: Smooth scrolling navigation with mobile-responsive menu
-- **Contact Form**: Multi-field form with validation and submission handling
+- **Home Page**: Single-page application with sections for hero, IT services, about R K Ads, team, testimonials, and contact
+- **Navigation**: Smooth scrolling navigation with mobile-responsive menu branded as "R K Ads"
+- **Contact Form**: Multi-field form with ServiceNow-specific service options and validation
 - **UI Components**: Comprehensive set of reusable components (buttons, cards, forms, etc.)
 
 ### Backend Services
-- **Contact API**: `/api/contact` - POST endpoint for form submissions
+- **Contact API**: `/api/contact` - POST endpoint for IT consulting form submissions
 - **Admin API**: `/api/contact-submissions` - GET endpoint to retrieve all submissions
 - **Storage Layer**: Abstracted storage interface with in-memory implementation
 
@@ -95,8 +95,20 @@ This is a full-stack business consulting website built with React frontend and E
 ## Changelog
 
 Changelog:
-- June 16, 2025. Initial setup
+- June 16, 2025. Initial setup with Charan Sunday Team branding
+- June 16, 2025. Complete rebrand to R K Ads - IT Consulting & ServiceNow Solutions
+  - Updated all branding from "Charan Sunday Team" to "R K Ads"
+  - Changed services from general business consulting to IT-specific services:
+    * IT Staffing Solutions
+    * ServiceNow Implementation  
+    * ServiceNow Consulting
+  - Updated contact information to R K Ads details (Hyderabad address, Indian phone number, rkads23@gmail.com)
+  - Modified team profiles to reflect ServiceNow and IT expertise
+  - Updated testimonials to showcase ServiceNow implementation success stories
+  - Maintained original design theme and layout for easy client comparison
 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+Project focus: ServiceNow consulting and IT staffing solutions
+Branding: R K Ads with professional IT consulting theme

@@ -4,22 +4,22 @@ import { motion } from "framer-motion";
 
 const testimonials = [
   {
-    quote: "The Charan Sunday Team transformed our organization's culture and operational efficiency. Their strategic approach and hands-on guidance delivered measurable results within months.",
-    author: "John Davidson",
-    role: "CEO, Tech Solutions Inc.",
-    initials: "JD",
+    quote: "R K Ads implemented ServiceNow for our organization seamlessly. Their technical expertise and project management skills ensured we went live on time with zero disruptions to our operations.",
+    author: "Suresh Reddy",
+    role: "IT Director, TechFlow Solutions",
+    initials: "SR",
   },
   {
-    quote: "Working with this team was a game-changer for our business. Their innovative solutions and collaborative approach helped us achieve growth we never thought possible.",
-    author: "Lisa Martinez",
-    role: "COO, Global Manufacturing",
-    initials: "LM",
+    quote: "The IT staffing solutions from R K Ads helped us find qualified ServiceNow developers quickly. Their candidates were well-screened and ready to contribute from day one.",
+    author: "Meera Joshi",
+    role: "HR Manager, InnovateTech",
+    initials: "MJ",
   },
   {
-    quote: "The expertise and dedication of the Charan Sunday Team exceeded our expectations. They delivered practical solutions that had immediate impact on our bottom line.",
-    author: "Robert Kim",
-    role: "Founder, StartupX",
-    initials: "RK",
+    quote: "R K Ads consulting team optimized our ServiceNow workflows and reduced our ticket resolution time by 40%. Their deep platform knowledge made all the difference.",
+    author: "Vikram Singh",
+    role: "Operations Head, DataSystems Ltd",
+    initials: "VS",
   },
 ];
 
