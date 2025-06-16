@@ -19,57 +19,37 @@ const services = [
     title: "AI-Powered Automation",
     description: "Harness the power of artificial intelligence to automate complex workflows and enhance decision-making processes.",
     color: "from-blue-500 to-purple-600",
-    size: "large",
     featured: true,
   },
   {
     icon: Settings,
     title: "ServiceNow Implementation",
-    description: "End-to-end ServiceNow deployment with custom configurations.",
+    description: "End-to-end ServiceNow deployment with custom configurations tailored to your business needs.",
     color: "from-cyan-400 to-blue-600",
-    size: "medium",
   },
   {
     icon: Users,
     title: "Expert IT Staffing",
-    description: "Top-tier IT professionals for your critical projects.",
+    description: "Top-tier IT professionals for your critical projects and long-term strategic initiatives.",
     color: "from-purple-500 to-pink-600",
-    size: "medium",
   },
   {
     icon: Zap,
     title: "Performance Optimization",
-    description: "Maximize system efficiency and reduce operational costs.",
+    description: "Maximize system efficiency and reduce operational costs through intelligent optimization strategies.",
     color: "from-orange-400 to-red-500",
-    size: "small",
   },
   {
     icon: Shield,
     title: "Security Solutions",
-    description: "Comprehensive cybersecurity frameworks.",
+    description: "Comprehensive cybersecurity frameworks to protect your digital assets and infrastructure.",
     color: "from-green-400 to-teal-500",
-    size: "small",
   },
   {
     icon: Workflow,
     title: "Process Automation",
-    description: "Streamline business processes with intelligent automation.",
+    description: "Streamline business processes with intelligent automation and workflow optimization tools.",
     color: "from-indigo-400 to-purple-500",
-    size: "medium",
-  },
-  {
-    icon: BarChart3,
-    title: "Analytics & Insights",
-    description: "Data-driven insights for strategic decision making.",
-    color: "from-pink-400 to-rose-500",
-    size: "small",
-  },
-  {
-    icon: Lightbulb,
-    title: "Strategic Consulting",
-    description: "Expert guidance for digital transformation initiatives.",
-    color: "from-yellow-400 to-orange-500",
-    size: "medium",
   },
 ];
 
@@ -86,7 +66,7 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-24 bg-gradient-to-b from-background to-muted/30">
+    <section id="services" className="py-32 bg-gradient-to-b from-background to-muted/30">
       <div className="container mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -108,90 +88,69 @@ export default function Services() {
           </p>
         </motion.div>
 
-        {/* Bento Grid Layout */}
-        <div className="grid grid-cols-12 gap-6 max-w-7xl mx-auto">
-          {services.map((service, index) => {
-            let gridClass = "";
-            switch (service.size) {
-              case "large":
-                gridClass = "col-span-12 md:col-span-6 lg:col-span-8 row-span-2";
-                break;
-              case "medium":
-                gridClass = "col-span-12 md:col-span-6 lg:col-span-4";
-                break;
-              case "small":
-                gridClass = "col-span-12 sm:col-span-6 lg:col-span-4";
-                break;
-              default:
-                gridClass = "col-span-12 md:col-span-4";
-            }
-
-            return (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                whileHover={{ scale: 1.02, y: -8 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: index * 0.1,
-                  type: "spring",
-                  stiffness: 120
-                }}
-                viewport={{ once: true }}
-                className={`${gridClass} group`}
-              >
-                <div className={`card-bento h-full relative overflow-hidden ${
-                  service.featured 
-                    ? 'bg-gradient-to-br from-blue-500/5 to-purple-600/5 border-2 border-blue-500/20' 
-                    : 'bg-card/50 backdrop-blur-sm'
-                } ${service.size === 'large' ? 'p-8 md:p-12' : 'p-6'}`}>
-                  
-                  {/* Background Pattern */}
-                  <div className="absolute inset-0 opacity-10">
-                    <div className={`absolute top-4 right-4 w-32 h-32 bg-gradient-to-r ${service.color} rounded-full blur-3xl`} />
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="relative z-10 h-full flex flex-col">
-                    {/* Icon */}
-                    <div className={`inline-flex w-fit p-4 bg-gradient-to-r ${service.color} rounded-2xl shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                      <service.icon className={`text-white ${service.size === 'large' ? 'h-8 w-8' : 'h-6 w-6'}`} />
-                    </div>
-                    
-                    {/* Title & Description */}
-                    <h3 className={`font-bold text-foreground mb-4 ${
-                      service.size === 'large' ? 'text-3xl md:text-4xl' : 'text-xl md:text-2xl'
-                    }`}>
-                      {service.title}
-                    </h3>
-                    
-                    <p className={`text-muted-foreground leading-relaxed flex-1 ${
-                      service.size === 'large' ? 'text-lg mb-8' : 'text-base mb-6'
-                    }`}>
-                      {service.description}
-                    </p>
-                    
-                    {/* CTA */}
-                    <button
-                      onClick={scrollToContact}
-                      className="inline-flex items-center gap-2 text-foreground font-semibold hover:gap-3 transition-all duration-300 group-hover:text-blue-600"
-                    >
-                      Learn More
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </button>
-                  </div>
-                  
-                  {/* Featured Badge */}
-                  {service.featured && (
-                    <div className="absolute top-4 right-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                      Popular
-                    </div>
-                  )}
+        {/* 3-Column Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ scale: 1.02, y: -8 }}
+              transition={{ 
+                duration: 0.6, 
+                delay: index * 0.1,
+                type: "spring",
+                stiffness: 120
+              }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <div className={`card-bento h-full relative overflow-hidden p-8 ${
+                service.featured 
+                  ? 'bg-gradient-to-br from-blue-500/5 to-purple-600/5 border-2 border-blue-500/20' 
+                  : 'bg-card/50 backdrop-blur-sm border border-border/50'
+              }`}>
+                
+                {/* Background Pattern */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className={`absolute top-4 right-4 w-32 h-32 bg-gradient-to-r ${service.color} rounded-full blur-3xl`} />
                 </div>
-              </motion.div>
-            );
-          })}
+                
+                {/* Content */}
+                <div className="relative z-10 h-full flex flex-col">
+                  {/* Icon */}
+                  <div className={`inline-flex w-fit p-4 bg-gradient-to-r ${service.color} rounded-2xl shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    <service.icon className="text-white h-7 w-7" />
+                  </div>
+                  
+                  {/* Title & Description */}
+                  <h3 className="font-bold text-foreground mb-4 text-xl md:text-2xl">
+                    {service.title}
+                  </h3>
+                  
+                  <p className="text-muted-foreground leading-relaxed flex-1 text-base mb-6">
+                    {service.description}
+                  </p>
+                  
+                  {/* CTA */}
+                  <button
+                    onClick={scrollToContact}
+                    className="inline-flex items-center gap-2 text-foreground font-semibold hover:gap-3 transition-all duration-300 group-hover:text-blue-600"
+                  >
+                    Learn More
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </button>
+                </div>
+                
+                {/* Featured Badge */}
+                {service.featured && (
+                  <div className="absolute top-4 right-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                    Popular
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          ))}
         </div>
 
         {/* Bottom CTA */}
@@ -200,17 +159,17 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mt-20"
+          className="text-center mt-24"
         >
-          <div className="inline-flex flex-col sm:flex-row gap-4 items-center">
+          <div className="inline-flex flex-col sm:flex-row gap-6 items-center justify-center">
             <button
               onClick={scrollToContact}
-              className="btn-primary px-8 py-4 text-lg"
+              className="btn-primary px-8 py-4 text-lg inline-flex items-center"
             >
               Get Started Today
               <ArrowRight className="ml-2 h-5 w-5" />
             </button>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-muted-foreground text-base max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
               Ready to transform your business? Let's discuss your needs.
             </p>
           </div>
