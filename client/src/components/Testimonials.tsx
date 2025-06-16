@@ -1,0 +1,81 @@
+import { Star } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+
+const testimonials = [
+  {
+    quote: "The Charan Sunday Team transformed our organization's culture and operational efficiency. Their strategic approach and hands-on guidance delivered measurable results within months.",
+    author: "John Davidson",
+    role: "CEO, Tech Solutions Inc.",
+    initials: "JD",
+  },
+  {
+    quote: "Working with this team was a game-changer for our business. Their innovative solutions and collaborative approach helped us achieve growth we never thought possible.",
+    author: "Lisa Martinez",
+    role: "COO, Global Manufacturing",
+    initials: "LM",
+  },
+  {
+    quote: "The expertise and dedication of the Charan Sunday Team exceeded our expectations. They delivered practical solutions that had immediate impact on our bottom line.",
+    author: "Robert Kim",
+    role: "Founder, StartupX",
+    initials: "RK",
+  },
+];
+
+const avatarColors = ["bg-primary", "bg-secondary", "bg-accent"];
+
+export default function Testimonials() {
+  return (
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-business-dark mb-4">Client Success Stories</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Hear from our clients about their transformation journey and the results we've achieved together
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={testimonial.author}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full card-hover shadow-lg bg-business-light">
+                <CardContent className="p-8">
+                  <div className="flex items-center mb-6">
+                    <div className="flex text-secondary">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-5 w-5 fill-current" />
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-gray-600 mb-6 italic">"{testimonial.quote}"</p>
+                  <div className="flex items-center">
+                    <div className={`w-12 h-12 ${avatarColors[index]} rounded-full flex items-center justify-center mr-4`}>
+                      <span className="text-white font-bold">{testimonial.initials}</span>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-business-dark">{testimonial.author}</h4>
+                      <p className="text-gray-600 text-sm">{testimonial.role}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
