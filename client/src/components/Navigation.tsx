@@ -37,9 +37,9 @@ export default function Navigation() {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-to-br from-primary to-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">CS</span>
+              <span className="text-white font-bold text-lg">RK</span>
             </div>
-            <span className="text-xl font-bold text-business-dark">Charan Sunday Team</span>
+            <span className="text-xl font-bold text-business-dark">R K Ads</span>
           </div>
 
           {/* Desktop Navigation */}

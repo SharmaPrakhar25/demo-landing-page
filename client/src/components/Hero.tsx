@@ -34,13 +34,14 @@ export default function Hero() {
           className="max-w-4xl mx-auto"
         >
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Transforming Business
+            IT Consulting
             <br />
-            <span className="text-secondary">Excellence</span>
+            <span className="text-secondary">& Services</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 font-light opacity-90 max-w-3xl mx-auto">
-            We partner with forward-thinking organizations to unlock their potential,
-            drive innovation, and achieve sustainable growth through strategic consulting and expert guidance.
+            At R.K. ADS, we specialize in delivering top-notch IT services centered around ServiceNow. 
+            Our expertise lies in helping businesses streamline their IT operations, enhance workflow automation, 
+            and maximize the full potential of the ServiceNow platform.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button

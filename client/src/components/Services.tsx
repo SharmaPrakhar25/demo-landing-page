@@ -4,40 +4,22 @@ import { motion } from "framer-motion";
 
 const services = [
   {
-    icon: TrendingUp,
-    title: "Strategic Planning",
-    description: "Develop comprehensive strategies that align with your business objectives and market opportunities.",
+    icon: Users,
+    title: "IT Staffing Solutions",
+    description: "At R.K. ADS, we provide highly skilled IT professionals to meet your business needs. Whether you require short-term contractors or full-time hires, we have a vast network of qualified experts proficient in ServiceNow and other IT domains.",
     color: "bg-primary/10 text-primary",
   },
   {
-    icon: Users,
-    title: "Team Development",
-    description: "Build high-performing teams through leadership development and organizational culture transformation.",
+    icon: Settings,
+    title: "ServiceNow Implementation",
+    description: "From initial setup to full-scale deployment, we ensure a seamless and efficient implementation of ServiceNow in your organization. Our experts help you configure and customize the platform to align with your business processes.",
     color: "bg-secondary/10 text-secondary",
   },
   {
-    icon: Settings,
-    title: "Process Optimization",
-    description: "Streamline operations and improve efficiency through data-driven process improvements.",
-    color: "bg-accent/10 text-accent",
-  },
-  {
     icon: Lightbulb,
-    title: "Innovation Consulting",
-    description: "Foster innovation culture and implement cutting-edge solutions for competitive advantage.",
-    color: "bg-purple-100 text-purple-600",
-  },
-  {
-    icon: Target,
-    title: "Performance Management",
-    description: "Implement robust performance measurement systems and accountability frameworks.",
-    color: "bg-red-100 text-red-600",
-  },
-  {
-    icon: Handshake,
-    title: "Change Management",
-    description: "Navigate organizational transitions smoothly with proven change management methodologies.",
-    color: "bg-indigo-100 text-indigo-600",
+    title: "ServiceNow Consulting",
+    description: "Leverage our deep industry knowledge to optimize your ServiceNow experience. We analyze your existing IT ecosystem and provide strategic recommendations to enhance efficiency, reduce costs, and improve service delivery.",
+    color: "bg-accent/10 text-accent",
   },
 ];
 
@@ -65,11 +47,11 @@ export default function Services() {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-business-dark mb-4">Our Services</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Comprehensive business solutions tailored to drive your organization's success and growth
+            Comprehensive IT solutions tailored to maximize your ServiceNow potential and streamline operations
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
