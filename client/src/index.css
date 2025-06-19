@@ -101,23 +101,27 @@
   }
   
   .btn-primary {
-    background: var(--gradient-primary);
-    @apply text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:scale-105;
-    box-shadow: 0 10px 40px -10px hsla(230, 73%, 58%, 0.4);
+    background: var(--business-primary);
+    @apply text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:shadow-lg;
+    border: 1px solid var(--business-primary);
   }
   
   .btn-primary:hover {
-    box-shadow: 0 20px 60px -10px hsla(230, 73%, 58%, 0.6);
+    background: hsl(230, 73%, 52%);
+    border-color: hsl(230, 73%, 52%);
+    transform: translateY(-1px);
   }
   
   .btn-secondary {
-    background: var(--gradient-secondary);
-    @apply text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:scale-105;
-    box-shadow: 0 10px 40px -10px hsla(180, 77%, 60%, 0.4);
+    background: transparent;
+    @apply text-foreground font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:shadow-lg;
+    border: 1px solid var(--border);
   }
   
   .btn-secondary:hover {
-    box-shadow: 0 20px 60px -10px hsla(180, 77%, 60%, 0.6);
+    background: var(--muted);
+    border-color: var(--business-primary);
+    transform: translateY(-1px);
   }
   
   .card-modern {
