@@ -1,72 +1,12 @@
-import { 
-  Users, 
-  Settings, 
-  Lightbulb, 
-  Brain, 
-  Zap, 
-  Shield, 
-  Workflow, 
-  BarChart3,
-  ArrowRight,
-  Sparkles
-} from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-
-const services = [
-  {
-    icon: Brain,
-    title: "AI-Powered Automation",
-    description: "Harness the power of artificial intelligence to automate complex workflows and enhance decision-making processes.",
-    color: "from-blue-500 to-purple-600",
-    featured: true,
-  },
-  {
-    icon: Settings,
-    title: "ServiceNow Implementation",
-    description: "End-to-end ServiceNow deployment with custom configurations tailored to your business needs.",
-    color: "from-cyan-400 to-blue-600",
-  },
-  {
-    icon: Users,
-    title: "Expert IT Staffing",
-    description: "Top-tier IT professionals for your critical projects and long-term strategic initiatives.",
-    color: "from-purple-500 to-pink-600",
-  },
-  {
-    icon: Zap,
-    title: "Performance Optimization",
-    description: "Maximize system efficiency and reduce operational costs through intelligent optimization strategies.",
-    color: "from-orange-400 to-red-500",
-  },
-  {
-    icon: Shield,
-    title: "Security Solutions",
-    description: "Comprehensive cybersecurity frameworks to protect your digital assets and infrastructure.",
-    color: "from-green-400 to-teal-500",
-  },
-  {
-    icon: Workflow,
-    title: "Process Automation",
-    description: "Streamline business processes with intelligent automation and workflow optimization tools.",
-    color: "from-indigo-400 to-purple-500",
-  },
-];
+import { Link } from "wouter";
+import { services } from "@/data/services";
+import { ROUTES } from "@/lib/constants";
 
 export default function Services() {
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
-    if (element) {
-      const offsetTop = element.offsetTop - 80;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: "smooth",
-      });
-    }
-  };
-
   return (
-    <section id="services" className="py-32 bg-gradient-to-b from-background to-muted/30">
+    <section id="services" className="py-20 bg-gradient-to-b from-background to-muted/30">
       <div className="container mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -74,16 +14,16 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-purple-600/10 backdrop-blur-xl border border-blue-500/20 rounded-full px-6 py-3 mb-6">
             <Sparkles className="w-4 h-4 text-blue-500" />
             <span className="text-sm font-medium text-foreground">Our Solutions</span>
           </div>
-          <h2 className="text-5xl md:text-7xl font-bold mb-6 text-gradient" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-gradient" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
             Cutting-Edge Services
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Discover our comprehensive suite of AI-powered solutions designed to transform your business operations
           </p>
         </motion.div>
@@ -133,13 +73,15 @@ export default function Services() {
                   </p>
                   
                   {/* CTA */}
-                  <button
-                    onClick={scrollToContact}
-                    className="inline-flex items-center gap-2 text-foreground font-semibold hover:gap-3 transition-all duration-300 group-hover:text-blue-600"
-                  >
-                    Learn More
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </button>
+                  <Link href={ROUTES.CONTACT}>
+                    <button
+                      onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
+                      className="inline-flex items-center gap-2 text-foreground font-semibold hover:gap-3 transition-all duration-300 group-hover:text-blue-600"
+                    >
+                      Learn More
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </button>
+                  </Link>
                 </div>
                 
                 {/* Featured Badge */}
@@ -152,28 +94,6 @@ export default function Services() {
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mt-24"
-        >
-          <div className="inline-flex flex-col sm:flex-row gap-6 items-center justify-center">
-            <button
-              onClick={scrollToContact}
-              className="btn-primary px-8 py-4 text-lg inline-flex items-center"
-            >
-              Get Started Today
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </button>
-            <p className="text-muted-foreground text-base max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
-              Ready to transform your business? Let's discuss your needs.
-            </p>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
