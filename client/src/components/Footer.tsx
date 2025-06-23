@@ -1,5 +1,5 @@
 import { Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
-import CompanyLogo from "../../../attached_assets/CompanyLogo.png";
+import CompanyLogo from "../../../attached_assets/companyLogo.jpeg";
 
 export default function Footer() {
   const scrollToSection = (sectionId: string) => {
