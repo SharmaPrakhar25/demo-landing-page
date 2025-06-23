@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import { useScroll, scrollToSection } from "@/hooks/use-scroll";
-import CompanyLogo from "../../../attached_assets/CompanyLogo.png";
+import CompanyLogo from "../../../attached_assets/companyLogo.jpeg";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
