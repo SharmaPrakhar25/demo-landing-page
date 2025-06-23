@@ -8,11 +8,17 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
-import contactImage from '@assets/contact_page.avif';
+import contactImage from "@assets/contact_page.avif";
 
 interface ContactFormData {
   firstName: string;
@@ -36,7 +42,7 @@ export default function Contact() {
     service: "",
     message: "",
   });
-  
+
   const { toast } = useToast();
 
   const submitContactForm = useMutation({
@@ -45,8 +51,11 @@ export default function Contact() {
     },
     onSuccess: () => {
       toast({
-        title: "Message Sent!",
-        description: "Thank you for your message. We'll get back to you soon.",
+        title: "✨ Message Sent Successfully!",
+        description:
+          "Thank you for reaching out! We've received your inquiry and our team will get back to you within 24 hours. Check your email for a confirmation.",
+        duration: 6000,
+        variant: "default",
       });
       setFormData({
         firstName: "",
@@ -59,24 +68,34 @@ export default function Contact() {
     },
     onError: () => {
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
+        title: "❌ Message Failed to Send",
+        description:
+          "We encountered an issue sending your message. Please check your connection and try again, or contact us directly at rkads23@gmail.com",
         variant: "destructive",
+        duration: 8000,
       });
     },
   });
 
   const handleInputChange = (field: keyof ContactFormData, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.service || !formData.message) {
+    if (
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.email ||
+      !formData.service ||
+      !formData.message
+    ) {
       toast({
-        title: "Missing Information",
-        description: "Please fill in all required fields.",
-        variant: "destructive",
+        title: "⚠️ Missing Required Information",
+        description:
+          "Please fill in all required fields (marked with *) before submitting your message.",
+        variant: "info",
+        duration: 5000,
       });
       return;
     }
@@ -107,7 +126,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 overflow-hidden">
         <div className="container mx-auto px-6">
@@ -128,14 +147,16 @@ export default function Contact() {
               Get In
               <span className="block text-gradient">Touch</span>
             </motion.h1>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto"
             >
-              Ready to optimize your IT operations? Contact R K Ads today to discuss how we can help streamline your ServiceNow implementation, provide expert consulting, or connect you with top IT talent.
+              Ready to optimize your IT operations? Contact R K Ads today to
+              discuss how we can help streamline your ServiceNow implementation,
+              provide expert consulting, or connect you with top IT talent.
             </motion.p>
           </motion.div>
 
@@ -151,7 +172,7 @@ export default function Contact() {
                 src={contactImage}
                 alt="Contact us - Professional team ready to help"
                 className="w-full h-auto object-cover"
-                style={{ aspectRatio: '1199/743' }}
+                style={{ aspectRatio: "1199/743" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
@@ -169,11 +190,15 @@ export default function Contact() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+            <h2
+              className="text-4xl md:text-5xl font-bold text-foreground mb-6"
+              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            >
               Send Us a <span className="text-gradient">Message</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Fill out the form below and we'll get back to you as soon as possible.
+              Fill out the form below and we'll get back to you as soon as
+              possible.
             </p>
           </motion.div>
 
@@ -187,11 +212,15 @@ export default function Contact() {
               className="space-y-8"
             >
               <div>
-                <h3 className="text-3xl font-bold text-foreground mb-4" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                <h3
+                  className="text-3xl font-bold text-foreground mb-4"
+                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                >
                   Contact Information
                 </h3>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Get in touch with us through any of the following channels. We're here to help you with your IT needs.
+                  Get in touch with us through any of the following channels.
+                  We're here to help you with your IT needs.
                 </p>
               </div>
 
@@ -204,14 +233,20 @@ export default function Contact() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex items-center p-6 bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl hover:shadow-lg transition-all duration-300"
+                    className="flex items-start p-6 bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl hover:shadow-lg transition-all duration-300"
                   >
-                    <div className={`w-14 h-14 bg-gradient-to-r ${info.color} rounded-xl flex items-center justify-center mr-6 shadow-lg`}>
+                    <div
+                      className={`w-14 h-14 bg-gradient-to-r ${info.color} rounded-xl flex items-center justify-center mr-6 shadow-lg flex-shrink-0`}
+                    >
                       <info.icon className="h-7 w-7 text-white" />
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground text-lg mb-1">{info.title}</h4>
-                      <p className="text-muted-foreground whitespace-pre-line">{info.info}</p>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-foreground text-lg mb-1">
+                        {info.title}
+                      </h4>
+                      <p className="text-muted-foreground whitespace-pre-line leading-relaxed">
+                        {info.info}
+                      </p>
                     </div>
                   </motion.div>
                 ))}
@@ -227,33 +262,46 @@ export default function Contact() {
             >
               <Card className="shadow-2xl border-0 bg-card/80 backdrop-blur-sm">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-foreground mb-6" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                  <h3
+                    className="text-2xl font-bold text-foreground mb-6"
+                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                  >
                     Send Us a Message
                   </h3>
 
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <Label htmlFor="firstName" className="text-sm font-semibold text-foreground">
+                        <Label
+                          htmlFor="firstName"
+                          className="text-sm font-semibold text-foreground"
+                        >
                           First Name *
                         </Label>
                         <Input
                           id="firstName"
                           value={formData.firstName}
-                          onChange={(e) => handleInputChange("firstName", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("firstName", e.target.value)
+                          }
                           placeholder="John"
                           className="mt-2 h-12"
                           required
                         />
                       </div>
                       <div>
-                        <Label htmlFor="lastName" className="text-sm font-semibold text-foreground">
+                        <Label
+                          htmlFor="lastName"
+                          className="text-sm font-semibold text-foreground"
+                        >
                           Last Name *
                         </Label>
                         <Input
                           id="lastName"
                           value={formData.lastName}
-                          onChange={(e) => handleInputChange("lastName", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("lastName", e.target.value)
+                          }
                           placeholder="Doe"
                           className="mt-2 h-12"
                           required
@@ -262,14 +310,19 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <Label htmlFor="email" className="text-sm font-semibold text-foreground">
+                      <Label
+                        htmlFor="email"
+                        className="text-sm font-semibold text-foreground"
+                      >
                         Email *
                       </Label>
                       <Input
                         id="email"
                         type="email"
                         value={formData.email}
-                        onChange={(e) => handleInputChange("email", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("email", e.target.value)
+                        }
                         placeholder="john@company.com"
                         className="mt-2 h-12"
                         required
@@ -277,43 +330,69 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <Label htmlFor="company" className="text-sm font-semibold text-foreground">
+                      <Label
+                        htmlFor="company"
+                        className="text-sm font-semibold text-foreground"
+                      >
                         Company
                       </Label>
                       <Input
                         id="company"
                         value={formData.company}
-                        onChange={(e) => handleInputChange("company", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("company", e.target.value)
+                        }
                         placeholder="Your Company"
                         className="mt-2 h-12"
                       />
                     </div>
 
                     <div>
-                      <Label htmlFor="service" className="text-sm font-semibold text-foreground">
+                      <Label
+                        htmlFor="service"
+                        className="text-sm font-semibold text-foreground"
+                      >
                         Service Interest *
                       </Label>
-                      <Select value={formData.service} onValueChange={(value) => handleInputChange("service", value)}>
+                      <Select
+                        value={formData.service}
+                        onValueChange={(value) =>
+                          handleInputChange("service", value)
+                        }
+                      >
                         <SelectTrigger className="mt-2 h-12">
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="it-staffing">IT Staffing Solutions</SelectItem>
-                          <SelectItem value="servicenow-implementation">ServiceNow Implementation</SelectItem>
-                          <SelectItem value="servicenow-consulting">ServiceNow Consulting</SelectItem>
-                          <SelectItem value="general-inquiry">General Inquiry</SelectItem>
+                          <SelectItem value="it-staffing">
+                            IT Staffing Solutions
+                          </SelectItem>
+                          <SelectItem value="servicenow-implementation">
+                            ServiceNow Implementation
+                          </SelectItem>
+                          <SelectItem value="servicenow-consulting">
+                            ServiceNow Consulting
+                          </SelectItem>
+                          <SelectItem value="general-inquiry">
+                            General Inquiry
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
 
                     <div>
-                      <Label htmlFor="message" className="text-sm font-semibold text-foreground">
+                      <Label
+                        htmlFor="message"
+                        className="text-sm font-semibold text-foreground"
+                      >
                         Message *
                       </Label>
                       <Textarea
                         id="message"
                         value={formData.message}
-                        onChange={(e) => handleInputChange("message", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("message", e.target.value)
+                        }
                         placeholder="Tell us about your project and how we can help..."
                         rows={6}
                         className="mt-2"
@@ -356,7 +435,10 @@ export default function Contact() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+            <h2
+              className="text-4xl md:text-5xl font-bold text-foreground mb-6"
+              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            >
               Visit Our <span className="text-gradient">Office</span>
             </h2>
             <p className="text-xl text-muted-foreground">
@@ -375,16 +457,16 @@ export default function Contact() {
               {/* Map Container */}
               <div className="relative h-96 md:h-[500px]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.3167546628!2d78.24323139453125!3d17.41261005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana%2C%20India!5e0!3m2!1sen!2sus!4v1641234567890!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.4942!2d78.5552!3d17.3457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDIwJzQ0LjUiTiA3OMKwMzMnMTguNyJF!5e0!3m2!1sen!2sin!4v1641234567890!5m2!1sen!2sin&q=Flat+401+R.K.+Residency+House+No.84258+R+18+19+Bupesh+Nagar+Greenland+Colony+Karmanghat+Hyderabad+500079"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="R K Ads Office Location - Hyderabad, India"
+                  title="R K Ads Office Location - Karmanghat, Hyderabad"
                 ></iframe>
-                
+
                 {/* Overlay with office details */}
                 <div className="absolute bottom-4 left-4 right-4 bg-card/95 backdrop-blur-sm border border-border/50 rounded-2xl p-4 md:p-6">
                   <div className="flex items-start gap-4">
@@ -392,10 +474,14 @@ export default function Contact() {
                       <MapPin className="h-6 w-6 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-bold text-foreground text-lg mb-2">R K Ads Office</h3>
+                      <h3 className="font-bold text-foreground text-lg mb-2">
+                        R K Ads Office
+                      </h3>
                       <p className="text-muted-foreground text-sm leading-relaxed">
-                        Flat # 401, R.K. Residency, House No.84258/R/ 18 & 19,<br />
-                        Bupesh Nagar, Greenland Colony,<br />
+                        Flat # 401, R.K. Residency, House No.84258/R/ 18 & 19,
+                        <br />
+                        Bupesh Nagar, Greenland Colony,
+                        <br />
                         Karmanghat, Hyderabad-500079, India
                       </p>
                     </div>
@@ -410,4 +496,4 @@ export default function Contact() {
       <Footer />
     </div>
   );
-} 
+}

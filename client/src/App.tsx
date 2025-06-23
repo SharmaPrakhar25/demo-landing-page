@@ -9,7 +9,7 @@ import Industries from "@/pages/industries";
 import Careers from "@/pages/careers";
 import Contact from "@/pages/contact";
 import NotFound from "@/pages/not-found";
-import './App.css';
+import "./App.css";
 
 function Router() {
   return (

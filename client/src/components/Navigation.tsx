@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import { useScroll, scrollToSection } from "@/hooks/use-scroll";
+import CompanyLogo from "../../../attached_assets/CompanyLogo.png";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,12 +42,11 @@ export default function Navigation() {
     }
   };
 
-
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        isScrolled 
-          ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-black/5" 
+        isScrolled
+          ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-black/5"
           : "bg-background/60 backdrop-blur-lg"
       }`}
     >
@@ -54,12 +54,13 @@ export default function Navigation() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
-              <span className="text-white font-bold text-xl">RK</span>
-            </div>
-            <span className="text-2xl font-bold text-foreground" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-              R K Ads
-            </span>
+            <img
+              src={CompanyLogo}
+              alt="RK Ads"
+              className="w-15 h-12 object-contain filter brightness-110 contrast-110 mt-[-17px]"
+            />
+            <span className="text-2xl font-bold text-gray-800 ml-2">RK</span>
+            <span className="text-2xl font-bold text-black ml-2">A D S</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -67,7 +68,9 @@ export default function Navigation() {
             <button
               onClick={handleHomeNavigation}
               className={`transition-all duration-300 font-medium hover:scale-105 ${
-                location === "/" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                location === "/"
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               Home
@@ -79,27 +82,31 @@ export default function Navigation() {
               Our Services
             </button>
             <Link href="/industries">
-              <button 
+              <button
                 onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
                 className={`transition-all duration-300 font-medium hover:scale-105 ${
-                  location === "/industries" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                  location === "/industries"
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 Industries
               </button>
             </Link>
             <Link href="/careers">
-              <button 
+              <button
                 onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
                 className={`transition-all duration-300 font-medium hover:scale-105 ${
-                  location === "/careers" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                  location === "/careers"
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 Careers
               </button>
             </Link>
             <Link href="/contact">
-              <Button 
+              <Button
                 onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
                 className="btn-primary ml-4"
               >
@@ -125,19 +132,21 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-6 pb-6 border-t border-border/50 bg-card/50 backdrop-blur-xl rounded-2xl mt-4">
-            <div className="flex flex-col space-y-4 pt-6 px-4">
+          <div className="md:hidden absolute top-full left-0 right-0 mt-2 mx-4 bg-background border border-border/50 rounded-2xl shadow-2xl shadow-black/25">
+            <div className="flex flex-col p-6 space-y-1">
               <button
                 onClick={handleHomeNavigation}
-                className={`transition-colors duration-300 font-medium text-left py-2 ${
-                  location === "/" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                className={`transition-colors duration-300 font-medium text-left py-3 px-4 rounded-lg ${
+                  location === "/"
+                    ? "text-foreground bg-primary/10"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`}
               >
                 Home
               </button>
               <button
                 onClick={handleServicesNavigation}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium text-left py-2"
+                className="text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors duration-300 font-medium text-left py-3 px-4 rounded-lg"
               >
                 Our Services
               </button>
@@ -147,8 +156,10 @@ export default function Navigation() {
                     setIsMenuOpen(false);
                     window.scrollTo({ top: 0, behavior: "instant" });
                   }}
-                  className={`transition-colors duration-300 font-medium text-left py-2 ${
-                    location === "/industries" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                  className={`w-full transition-colors duration-300 font-medium text-left py-3 px-4 rounded-lg ${
+                    location === "/industries"
+                      ? "text-foreground bg-primary/10"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                   }`}
                 >
                   Industries
@@ -160,24 +171,28 @@ export default function Navigation() {
                     setIsMenuOpen(false);
                     window.scrollTo({ top: 0, behavior: "instant" });
                   }}
-                  className={`transition-colors duration-300 font-medium text-left py-2 ${
-                    location === "/careers" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                  className={`w-full transition-colors duration-300 font-medium text-left py-3 px-4 rounded-lg ${
+                    location === "/careers"
+                      ? "text-foreground bg-primary/10"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                   }`}
                 >
                   Careers
                 </button>
               </Link>
-              <Link href="/contact">
-                <Button
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                    window.scrollTo({ top: 0, behavior: "instant" });
-                  }}
-                  className="btn-primary w-full mt-4"
-                >
-                  Contact
-                </Button>
-              </Link>
+              <div className="pt-4 mt-4 border-t border-border/50">
+                <Link href="/contact">
+                  <Button
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      window.scrollTo({ top: 0, behavior: "instant" });
+                    }}
+                    className="btn-primary w-full h-12 text-base font-medium"
+                  >
+                    Contact
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         )}

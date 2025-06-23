@@ -4,21 +4,24 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { useTypewriter } from "@/hooks/use-typewriter";
 import { scrollToSection } from "@/hooks/use-scroll";
-import heroImage from '@assets/Gemini_Generated_Image_j77lpkj77lpkj77l.png';
+import heroImage from "@assets/Gemini_Generated_Image_j77lpkj77lpkj77l.png";
 
 export default function Hero() {
-  const { displayText: typewriterText } = useTypewriter({ 
-    text: "Next-Gen IT Solutions", 
-    speed: 100 
+  const { displayText: typewriterText } = useTypewriter({
+    text: "Next-Gen IT Solutions",
+    speed: 100,
   });
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted"
+    >
       <img
-          src={heroImage}
-          className="hero-image"
-          alt="Professional working with advanced technology solutions"
-        />
+        src={heroImage}
+        className="hero-image"
+        alt="Professional working with advanced technology solutions"
+      />
       {/* Animated Background Elements */}
       <div className="absolute inset-0 z-0">
         {/* Gradient Orbs */}
@@ -95,7 +98,9 @@ export default function Hero() {
             className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-purple-600/10 backdrop-blur-xl border border-blue-500/20 rounded-full px-6 py-3 mb-8"
           >
             <Sparkles className="w-4 h-4 text-blue-500" />
-            <span className="text-sm font-medium text-foreground">Transform Your Business with AI-Powered Solutions</span>
+            <span className="text-sm font-medium text-foreground">
+              Transform Your Business with AI-Powered Solutions
+            </span>
             <Zap className="w-4 h-4 text-purple-600" />
           </motion.div>
 
@@ -120,8 +125,9 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-xl md:text-2xl lg:text-3xl mb-12 font-light text-muted-foreground max-w-4xl mx-auto leading-relaxed"
           >
-            Empowering businesses with cutting-edge ServiceNow solutions, AI-driven automation, 
-            and strategic IT consulting that propels your organization into the future.
+            Empowering businesses with cutting-edge ServiceNow solutions,
+            AI-driven automation, and strategic IT consulting that propels your
+            organization into the future.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -150,25 +156,6 @@ export default function Hero() {
           </motion.div>
 
           {/* Stats or Trust Indicators */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto"
-          >
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gradient mb-2">100+</div>
-              <div className="text-sm text-muted-foreground">Projects Delivered</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gradient mb-2">50+</div>
-              <div className="text-sm text-muted-foreground">Happy Clients</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gradient mb-2">24/7</div>
-              <div className="text-sm text-muted-foreground">Support Available</div>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>
