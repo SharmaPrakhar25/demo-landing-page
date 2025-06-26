@@ -6,3 +6,5 @@ vite.config.ts.*
 *.tar.gz
 .claude
 REFACTORING_REPORT.md
+# Local Netlify folder
+.netlify
