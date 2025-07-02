@@ -1,114 +1,148 @@
-# R K Ads - IT Consulting & ServiceNow Solutions Website
+# ServiceNex IT Solutions
 
 ## Overview
 
-This is a full-stack IT consulting website built with React frontend and Express.js backend. The application serves as a professional ServiceNow consulting platform with a modern, responsive design featuring IT service showcases, team information, client testimonials, and a contact form system specialized for ServiceNow implementations and IT staffing solutions.
+ServiceNex IT Solutions is a full-stack, modern IT consulting and ServiceNow solutions platform. Built with a robust React frontend and a scalable Express.js backend, ServiceNex empowers businesses with expert ServiceNow implementation, IT staffing, and digital transformation services. The platform features a sleek, responsive design, dynamic service showcases, team profiles, client testimonials, and a secure contact form system tailored for enterprise IT needs.
+
+---
+
+## Table of Contents
+- [System Architecture](#system-architecture)
+- [Key Features](#key-features)
+- [Getting Started](#getting-started)
+- [Development Workflow](#development-workflow)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [Changelog](#changelog)
+- [License](#license)
+
+---
 
 ## System Architecture
 
-### Frontend Architecture
-- **Framework**: React 18 with TypeScript
-- **UI Library**: Shadcn/UI components built on Radix UI primitives
-- **Styling**: Tailwind CSS with custom business theme
-- **State Management**: TanStack React Query for server state
-- **Routing**: Wouter for client-side routing
-- **Build Tool**: Vite for development and production builds
-- **Animations**: Framer Motion for smooth interactions
+### Frontend
+- **Framework:** React 18 + TypeScript
+- **UI:** Shadcn/UI (Radix UI primitives), Tailwind CSS
+- **Routing:** Wouter
+- **State Management:** TanStack React Query
+- **Animations:** Framer Motion
+- **Build Tool:** Vite
 
-### Backend Architecture  
-- **Runtime**: Node.js with Express.js server
-- **Language**: TypeScript with ES modules
-- **API Design**: RESTful endpoints for contact form submission
-- **Database**: PostgreSQL with Drizzle ORM
-- **Session Management**: In-memory storage (development)
-- **Development**: Hot module replacement via Vite middleware
+### Backend
+- **Runtime:** Node.js (Express.js, TypeScript, ES modules)
+- **API:** RESTful endpoints for contact and admin
+- **Database:** Neon serverless PostgreSQL (Drizzle ORM)
+- **Session:** In-memory (dev), ready for Redis
 
-### Database Schema
-- **contact_submissions**: Stores contact form data with fields for personal info, company, service type, and message
-- **Database Provider**: Neon serverless PostgreSQL (configured)
-- **ORM**: Drizzle with type-safe queries and migrations
+### Shared
+- **Schema:** Centralized with Zod validation
+- **Types:** TypeScript interfaces for end-to-end type safety
 
-## Key Components
+---
 
-### Frontend Pages & Components
-- **Home Page**: Single-page application with sections for hero, IT services, about R K Ads, team, testimonials, and contact
-- **Navigation**: Smooth scrolling navigation with mobile-responsive menu branded as "R K Ads"
-- **Contact Form**: Multi-field form with ServiceNow-specific service options and validation
-- **UI Components**: Comprehensive set of reusable components (buttons, cards, forms, etc.)
+## Key Features
+- **Modern, Responsive UI:** Mobile-first, accessible, and fast
+- **ServiceNow Focus:** Specialized forms and content for ServiceNow consulting and IT staffing
+- **Reusable Components:** Buttons, cards, forms, navigation, and more
+- **Contact System:** Validated, secure, and extensible
+- **Admin API:** Retrieve and manage contact submissions
+- **Easy Theming:** Tailwind CSS with custom business theme
+- **Smooth Animations:** Framer Motion for delightful UX
 
-### Backend Services
-- **Contact API**: `/api/contact` - POST endpoint for IT consulting form submissions
-- **Admin API**: `/api/contact-submissions` - GET endpoint to retrieve all submissions
-- **Storage Layer**: Abstracted storage interface with in-memory implementation
+---
 
-### Shared Resources
-- **Schema**: Centralized database schema definitions with Zod validation
-- **Types**: TypeScript interfaces for data consistency across client/server
+## Getting Started
 
-## Data Flow
+### Prerequisites
+- Node.js 20+
+- PostgreSQL 16+ (Neon or local)
+- pnpm / npm / yarn
 
-1. **Contact Form Submission**:
-   - User fills out contact form with personal and business information
-   - Frontend validates data using Zod schema
-   - Form data submitted to `/api/contact` endpoint
-   - Backend validates and stores submission in database
-   - Success/error response sent back to client
-   - Toast notification displays result to user
+### Installation
+```bash
+# Clone the repo
+$ git clone https://github.com/apple/CharanWebsite.git
+$ cd CharanWebsite
 
-2. **Content Rendering**:
-   - Static content rendered from component definitions
-   - Images served from external CDN (Unsplash)
-   - Smooth scrolling navigation between sections
+# Install dependencies
+$ npm install
 
-## External Dependencies
+# Copy and configure environment variables
+$ cp env.example .env
+# Edit .env with your database and email credentials
+```
 
-### Core Dependencies
-- **Database**: Neon serverless PostgreSQL
-- **UI Framework**: Radix UI component primitives
-- **Styling**: Tailwind CSS framework
-- **Icons**: Lucide React icons
-- **Fonts**: Google Fonts (Inter)
+### Running Locally
+```bash
+# Start the backend (Express server)
+$ npm run dev:server
 
-### Development Tools
-- **Replit Integration**: Runtime error overlay and cartographer plugins
-- **Build Tools**: ESBuild for server bundling, Vite for client bundling
-- **Database Tools**: Drizzle Kit for migrations and schema management
+# Start the frontend (Vite dev server)
+$ npm run dev:client
+```
 
-## Deployment Strategy
+### Database Migrations
+```bash
+# Run Drizzle migrations
+$ npm run db:migrate
+```
 
-### Development Environment
-- **Platform**: Replit with Node.js 20 and PostgreSQL 16 modules
-- **Hot Reload**: Vite development server with HMR
-- **Database**: Automatic provisioning via Replit environment
+---
 
-### Production Build
-- **Client**: Vite builds React app to `dist/public`
-- **Server**: ESBuild compiles TypeScript server to `dist/index.js`
-- **Static Assets**: Served from build directory
-- **Database**: Connection via DATABASE_URL environment variable
+## Development Workflow
+- **Frontend:** Edit files in `client/src/` (React, TypeScript, Tailwind)
+- **Backend:** Edit files in `server/` (Express, TypeScript)
+- **Shared Types/Schemas:** Edit in `shared/`
+- **Hot Reload:** Both client and server support HMR for rapid development
+- **Testing:** Add your preferred testing tools (Jest, React Testing Library, etc.)
 
-### Scaling Strategy
-- **Deployment Target**: Autoscale configuration in Replit
-- **Port Configuration**: Internal port 5000 mapped to external port 80
-- **Session Storage**: Ready for Redis upgrade from in-memory storage
+---
+
+## Deployment
+- **Production Build:**
+  - Client: `npm run build:client` (outputs to `dist/public`)
+  - Server: `npm run build:server` (outputs to `dist/index.js`)
+- **Platforms:**
+  - Netlify, Vercel, or Replit (see `netlify.toml`, `vercel.json`)
+- **Environment:**
+  - Set `DATABASE_URL` and other secrets in your deployment platform
+
+---
+
+## Contributing
+
+All contributions are welcome! Whether you're a junior or senior developer, you can:
+- Open issues for bugs or feature requests
+- Submit pull requests for improvements
+- Update documentation
+- Suggest new features or UI enhancements
+
+**Development Tips:**
+- Use clear commit messages
+- Write type-safe, well-documented code
+- Keep UI/UX accessible and responsive
+- Follow the existing code style (Prettier, ESLint recommended)
+
+---
 
 ## Changelog
+- **June 2025:** Initial release as ServiceNex IT Solutions (formerly R K Ads)
+- See previous changelog in old README for legacy details
 
-Changelog:
-- June 16, 2025. Initial setup with Charan Sunday Team branding
-- June 16, 2025. Complete rebrand to R K Ads - IT Consulting & ServiceNow Solutions
-  - Updated all branding from "Charan Sunday Team" to "R K Ads"
-  - Changed services from general business consulting to IT-specific services:
-    * IT Staffing Solutions
-    * ServiceNow Implementation  
-    * ServiceNow Consulting
-  - Updated contact information to R K Ads details (Hyderabad address, Indian phone number, rkads23@gmail.com)
-  - Modified team profiles to reflect ServiceNow and IT expertise
-  - Updated testimonials to showcase ServiceNow implementation success stories
-  - Maintained original design theme and layout for easy client comparison
+---
 
-## User Preferences
+## License
 
-Preferred communication style: Simple, everyday language.
-Project focus: ServiceNow consulting and IT staffing solutions
-Branding: R K Ads with professional IT consulting theme
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+---
+
+## Contact
+
+For business inquiries, partnership, or support:
+- Email: info@servicenexit.com (update as needed)
+- Location: Hyderabad, India
+
+---
+
+*Empowering your IT journey with ServiceNow expertise and next-gen consulting.*
