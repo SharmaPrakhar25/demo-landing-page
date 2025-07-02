@@ -1,5 +1,5 @@
 import { Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
-import CompanyLogo from "../../../attached_assets/companyLogo.jpeg";
+import CompanyLogo from "../../../attached_assets/CompanyLogo.png";
 
 export default function Footer() {
   const scrollToSection = (sectionId: string) => {
@@ -14,11 +14,17 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-gradient-to-b from-muted/50 to-background border-t border-border/50">
+    <footer
+      className="relative bg-gradient-to-b from-background/95 to-background border-t border-border/30"
+      style={{
+        backdropFilter: "blur(20px) saturate(180%)",
+        WebkitBackdropFilter: "blur(20px) saturate(180%)",
+      }}
+    >
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-full blur-3xl" />
+      <div className="absolute inset-0 opacity-3">
+        <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-r from-blue-500/30 to-purple-600/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-r from-cyan-400/30 to-blue-600/30 rounded-full blur-3xl" />
       </div>
 
       <div className="relative container mx-auto px-6 py-16">
@@ -43,16 +49,16 @@ export default function Footer() {
               implementations and strategic consulting.
             </p>
             <div className="flex space-x-4">
-              <button className="w-12 h-12 bg-card border border-border rounded-xl flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-blue-500/50 hover:bg-blue-500/5 transition-all duration-300">
+              <button className="w-12 h-12 bg-card/50 border border-border/30 rounded-xl flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-300 backdrop-blur-sm">
                 <Linkedin className="h-5 w-5" />
               </button>
-              <button className="w-12 h-12 bg-card border border-border rounded-xl flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-blue-500/50 hover:bg-blue-500/5 transition-all duration-300">
+              <button className="w-12 h-12 bg-card/50 border border-border/30 rounded-xl flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-300 backdrop-blur-sm">
                 <Twitter className="h-5 w-5" />
               </button>
-              <button className="w-12 h-12 bg-card border border-border rounded-xl flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-blue-500/50 hover:bg-blue-500/5 transition-all duration-300">
+              <button className="w-12 h-12 bg-card/50 border border-border/30 rounded-xl flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-300 backdrop-blur-sm">
                 <Facebook className="h-5 w-5" />
               </button>
-              <button className="w-12 h-12 bg-card border border-border rounded-xl flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-blue-500/50 hover:bg-blue-500/5 transition-all duration-300">
+              <button className="w-12 h-12 bg-card/50 border border-border/30 rounded-xl flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-300 backdrop-blur-sm">
                 <Instagram className="h-5 w-5" />
               </button>
             </div>
@@ -106,7 +112,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mt-0.5 flex-shrink-0">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-500/80 to-purple-600/80 rounded-lg flex items-center justify-center mt-0.5 flex-shrink-0 backdrop-blur-sm">
                   <span className="text-white text-xs">@</span>
                 </div>
                 <div className="min-w-0 flex-1">
@@ -119,7 +125,7 @@ export default function Footer() {
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center mt-0.5 flex-shrink-0">
+                <div className="w-8 h-8 bg-gradient-to-r from-cyan-400/80 to-blue-600/80 rounded-lg flex items-center justify-center mt-0.5 flex-shrink-0 backdrop-blur-sm">
                   <span className="text-white text-xs">📞</span>
                 </div>
                 <div className="min-w-0 flex-1">
@@ -128,7 +134,7 @@ export default function Footer() {
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mt-0.5 flex-shrink-0">
+                <div className="w-8 h-8 bg-gradient-to-r from-purple-500/80 to-pink-600/80 rounded-lg flex items-center justify-center mt-0.5 flex-shrink-0 backdrop-blur-sm">
                   <span className="text-white text-xs">📍</span>
                 </div>
                 <div className="min-w-0 flex-1">
@@ -145,7 +151,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-border/50 pt-8">
+        <div className="border-t border-border/30 pt-8">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-center sm:text-left">
               <p className="text-muted-foreground text-sm">

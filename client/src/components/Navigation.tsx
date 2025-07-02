@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import { useScroll, scrollToSection } from "@/hooks/use-scroll";
-import CompanyLogo from "../../../attached_assets/companyLogo.jpeg";
+import CompanyLogo from "../../../attached_assets/CompanyLogo.png";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,9 +46,13 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-black/5"
-          : "bg-background/60 backdrop-blur-lg"
+          ? "bg-background/95 backdrop-blur-2xl border-b border-border/30 shadow-lg shadow-black/10"
+          : "bg-transparent backdrop-blur-xl"
       }`}
+      style={{
+        backdropFilter: "blur(20px) saturate(180%)",
+        WebkitBackdropFilter: "blur(20px) saturate(180%)",
+      }}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -119,7 +123,7 @@ export default function Navigation() {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden hover:bg-card"
+            className="md:hidden hover:bg-card/50"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
@@ -132,21 +136,27 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 mt-2 mx-4 bg-background border border-border/50 rounded-2xl shadow-2xl shadow-black/25">
+          <div
+            className="md:hidden absolute top-full left-0 right-0 mt-2 mx-4 bg-background/95 border border-border/30 rounded-2xl shadow-2xl shadow-black/25"
+            style={{
+              backdropFilter: "blur(20px) saturate(180%)",
+              WebkitBackdropFilter: "blur(20px) saturate(180%)",
+            }}
+          >
             <div className="flex flex-col p-6 space-y-1">
               <button
                 onClick={handleHomeNavigation}
                 className={`transition-colors duration-300 font-medium text-left py-3 px-4 rounded-lg ${
                   location === "/"
                     ? "text-foreground bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/30"
                 }`}
               >
                 Home
               </button>
               <button
                 onClick={handleServicesNavigation}
-                className="text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors duration-300 font-medium text-left py-3 px-4 rounded-lg"
+                className="text-muted-foreground hover:text-foreground hover:bg-muted/30 transition-colors duration-300 font-medium text-left py-3 px-4 rounded-lg"
               >
                 Our Services
               </button>
@@ -159,7 +169,7 @@ export default function Navigation() {
                   className={`w-full transition-colors duration-300 font-medium text-left py-3 px-4 rounded-lg ${
                     location === "/industries"
                       ? "text-foreground bg-primary/10"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/30"
                   }`}
                 >
                   Industries
@@ -174,13 +184,13 @@ export default function Navigation() {
                   className={`w-full transition-colors duration-300 font-medium text-left py-3 px-4 rounded-lg ${
                     location === "/careers"
                       ? "text-foreground bg-primary/10"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/30"
                   }`}
                 >
                   Careers
                 </button>
               </Link>
-              <div className="pt-4 mt-4 border-t border-border/50">
+              <div className="pt-4 mt-4 border-t border-border/30">
                 <Link href="/contact">
                   <Button
                     onClick={() => {

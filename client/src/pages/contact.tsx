@@ -19,6 +19,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import contactImage from "@assets/contact_page.avif";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 
 interface ContactFormData {
   firstName: string;
@@ -43,6 +44,7 @@ export default function Contact() {
     message: "",
   });
 
+  const [backendDown, setBackendDown] = useState(false);
   const { toast } = useToast();
 
   const submitContactForm = useMutation({
@@ -50,6 +52,7 @@ export default function Contact() {
       return await apiRequest("POST", "/api/contact", data);
     },
     onSuccess: () => {
+      setBackendDown(false);
       toast({
         title: "✨ Message Sent Successfully!",
         description:
@@ -66,7 +69,8 @@ export default function Contact() {
         message: "",
       });
     },
-    onError: () => {
+    onError: (error: any) => {
+      setBackendDown(true);
       toast({
         title: "❌ Message Failed to Send",
         description:
@@ -125,6 +129,16 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-background">
+      {backendDown && (
+        <div className="p-4">
+          <Alert variant="destructive">
+            <AlertTitle>Backend Unavailable</AlertTitle>
+            <AlertDescription>
+              Our backend service is currently unreachable. You can still use the site, but form submissions will not work. Please try again later or contact us directly at <a href="mailto:rkads23@gmail.com" className="underline">rkads23@gmail.com</a>.
+            </AlertDescription>
+          </Alert>
+        </div>
+      )}
       <Navigation />
 
       {/* Hero Section */}

@@ -1,0 +1,6 @@
+.git
+.env.local
+*.md
+.github
+attached_assets
+node_modules/.cache

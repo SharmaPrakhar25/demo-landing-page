@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
@@ -56,11 +57,14 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
-  // ALWAYS serve the app on port 5000
-  // this serves both the API and the client.
-  // It is the only port that is not firewalled.
-  const port = 8000;
-  server.listen(port, "127.0.0.1", () => {
-    log(`serving on port ${port}`);
+  // Use Vercel's PORT environment variable or fallback to 8000 for local development
+  const port = process.env.PORT || 8000;
+  const host = process.env.NODE_ENV === "production" ? "0.0.0.0" : "127.0.0.1";
+  
+  server.listen(Number(port), host, () => {
+    log(`serving on ${host}:${port}`);
   });
 })();
+
+// Export the app for Vercel serverless functions
+export default app;
