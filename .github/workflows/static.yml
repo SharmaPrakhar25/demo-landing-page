@@ -1,4 +1,4 @@
-name: 🚀 Deploy static content to Pages
+name: 🚀 Build and Deploy
 
 on:
   push:
@@ -9,19 +9,13 @@ permissions:
   contents: read
   pages: write
   id-token: write
-  actions: read
-  deployments: write
-  metadata: read
 
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout
@@ -39,10 +33,13 @@ jobs:
       - name: 🏗️ Build
         run: npm run build:client
         
+      - name: 🔍 List build output
+        run: |
+          echo "Build completed. Contents:"
+          find dist -type f -name "*.html" -o -name "*.js" -o -name "*.css" | head -10
+        
       - name: 📄 Setup Pages
         uses: actions/configure-pages@v4
-        with:
-          enablement: true
         
       - name: 📤 Upload artifact
         uses: actions/upload-pages-artifact@v3
