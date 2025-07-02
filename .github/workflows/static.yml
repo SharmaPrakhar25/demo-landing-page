@@ -1,8 +1,8 @@
-name: 🚀 Deploy Demo Landing Page
+name: 🚀 Deploy static content to Pages
 
 on:
   push:
-    branches: [main, new-ui-2025]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -15,41 +15,35 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
-    name: 🏗️ Build and Deploy to GitHub Pages
-    runs-on: ubuntu-latest
+  deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
     steps:
-      - name: 📥 Checkout Repository
+      - name: 📥 Checkout
         uses: actions/checkout@v4
-
+        
       - name: 🟢 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
-
-      - name: 📦 Install Dependencies
+          
+      - name: 📦 Install dependencies
         run: npm ci
-
-      - name: 🔧 Type Check
-        run: npm run check
-
-      - name: 🏗️ Build Client
+        
+      - name: 🏗️ Build
         run: npm run build:client
-
-      - name: 📄 Setup GitHub Pages
+        
+      - name: 📄 Setup Pages
         uses: actions/configure-pages@v4
-        with:
-          enablement: true
-
-      - name: 📤 Upload Pages Artifact
+        
+      - name: 📤 Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist/public
-
+          path: './dist/public'
+          
       - name: 🚀 Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

@@ -214,10 +214,30 @@ npm run build:server  # → dist/index.js
 ### 🚀 Live Demo & Deployment
 
 <div align="center">
-  <h4>🌟 <strong>LIVE DEMO AVAILABLE</strong> 🌟</h4>
-  <p>View the live demonstration at: <strong>https://apple.github.io/demo-landing-page/</strong></p>
-  <p><em>Automatically deployed via GitHub Actions on every push to main branch</em></p>
+  <h4>🌟 <strong>LIVE DEMO SETUP</strong> 🌟</h4>
+  <p>Will be available at: <strong>https://[your-username].github.io/demo-landing-page/</strong></p>
+  <p><em>Follow the setup steps below to enable automatic deployment</em></p>
 </div>
+
+#### 📋 **GitHub Pages Setup Steps:**
+
+1. **Push your code to GitHub:**
+   ```bash
+   git push origin main
+   ```
+
+2. **Enable GitHub Pages:**
+   - Go to your repository on GitHub
+   - Click **Settings** tab
+   - Scroll to **Pages** in the left sidebar
+   - Under **Source**, select **"GitHub Actions"**
+   - Save the settings
+
+3. **Run the workflow:**
+   - Go to **Actions** tab
+   - Click **"Deploy static content to Pages"**
+   - Click **"Run workflow"** button
+   - Your site will be live in a few minutes!
 
 #### 🎯 **For Clients**: This demonstrates:
 - ✅ **Automated CI/CD**: GitHub Actions deployment pipeline
