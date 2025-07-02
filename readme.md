@@ -214,30 +214,29 @@ npm run build:server  # → dist/index.js
 ### 🚀 Live Demo & Deployment
 
 <div align="center">
-  <h4>🌟 <strong>LIVE DEMO SETUP</strong> 🌟</h4>
-  <p>Will be available at: <strong>https://[your-username].github.io/demo-landing-page/</strong></p>
-  <p><em>Follow the setup steps below to enable automatic deployment</em></p>
+  <h4>🌟 <strong>LIVE DEMO AVAILABLE</strong> 🌟</h4>
+  <p>View the live demonstration at: <strong>https://SharmaPrakhar25.github.io/demo-landing-page/</strong></p>
+  <p><em>Automatically deployed via GitHub Actions on every push to main branch</em></p>
 </div>
 
-#### 📋 **GitHub Pages Setup Steps:**
+#### 📋 **Deployment Status:**
+- ✅ **GitHub Actions**: Automated build and deployment configured
+- ✅ **Live Site**: Available at the URL above  
+- ✅ **Auto-updates**: Changes pushed to main branch deploy automatically
+- ✅ **Production Ready**: Optimized static assets served via GitHub Pages
 
-1. **Push your code to GitHub:**
-   ```bash
-   git push origin main
-   ```
+#### 🔧 **Setup Instructions (if deploying to new repository):**
 
-2. **Enable GitHub Pages:**
-   - Go to your repository on GitHub
-   - Click **Settings** tab
-   - Scroll to **Pages** in the left sidebar
-   - Under **Source**, select **"GitHub Actions"**
-   - Save the settings
+1. **Enable GitHub Pages:**
+   - Go to repository **Settings → Pages**
+   - Select **"Deploy from a branch"**
+   - Choose **"Branch: gh-pages"** and **"/ (root)"**
+   - Save settings
 
-3. **Run the workflow:**
-   - Go to **Actions** tab
-   - Click **"Deploy static content to Pages"**
-   - Click **"Run workflow"** button
-   - Your site will be live in a few minutes!
+2. **Automatic deployment:**
+   - Push changes to main branch
+   - GitHub Actions builds and deploys automatically
+   - Site updates within 1-2 minutes
 
 #### 🎯 **For Clients**: This demonstrates:
 - ✅ **Automated CI/CD**: GitHub Actions deployment pipeline
