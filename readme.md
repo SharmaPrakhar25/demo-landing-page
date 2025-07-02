@@ -138,9 +138,10 @@ cd demo-landing-page
 # 2️⃣ Install dependencies
 npm install
 
-# 3️⃣ Setup environment variables
-cp env.example .env
+# 3️⃣ Setup environment variables (optional for demo)
+cp .env.example .env
 # 📝 Edit .env with your database and email credentials
+# Note: For GitHub Pages demo, no environment setup needed!
 ```
 
 ### 🏃‍♂️ Running Locally

@@ -17,14 +17,14 @@ export class EmailService {
   }
 
   async sendContactNotification(submission: ContactSubmission): Promise<void> {
-    const notificationEmail = process.env.NOTIFICATION_EMAIL || 'sharmas92565@gmail.com';
+    const notificationEmail = process.env.NOTIFICATION_EMAIL || 'demo@example.com';
     const fromEmail = process.env.EMAIL_FROM || process.env.EMAIL_USER;
 
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
         <div style="background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
           <h1 style="color: #333; text-align: center; margin-bottom: 30px; border-bottom: 3px solid #4F46E5; padding-bottom: 15px;">
-            🚀 New Contact Form Submission - R K Ads
+            🎨 New Contact Form Submission - Demo Landing Page
           </h1>
           
           <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -72,7 +72,7 @@ export class EmailService {
 
           <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
             <p style="color: #6b7280; font-size: 14px; margin: 0;">
-              This notification was sent from the R K Ads contact form on your website.
+              This notification was sent from the Demo Landing Page contact form.
             </p>
             <p style="color: #6b7280; font-size: 12px; margin: 5px 0 0 0;">
               Submission ID: #${submission.id}
@@ -83,12 +83,12 @@ export class EmailService {
     `;
 
     const mailOptions = {
-      from: `"R K Ads Contact Form" <${fromEmail}>`,
+      from: `"Demo Landing Page Contact" <${fromEmail}>`,
       to: notificationEmail,
-      subject: `🚀 New Contact Form Submission - ${submission.firstName} ${submission.lastName}`,
+      subject: `🎨 New Contact Form Submission - ${submission.firstName} ${submission.lastName}`,
       html: htmlContent,
       text: `
-New Contact Form Submission - R K Ads
+New Contact Form Submission - Demo Landing Page
 
 Name: ${submission.firstName} ${submission.lastName}
 Email: ${submission.email}
